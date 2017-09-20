@@ -4,7 +4,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
-\Temp\
+EndessRunner/[Tt]emp/
 
 # Visual Studio 2015 cache directory
 /.vs/
