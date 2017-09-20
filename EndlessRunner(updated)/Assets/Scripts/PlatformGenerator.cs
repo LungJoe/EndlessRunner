@@ -36,6 +36,8 @@ public class PlatformGenerator : MonoBehaviour {
     public float powerupHeight;
     public ObejctPooler powerupPool;
     public float powerupThreshold;
+    private int currentPlatformSpaceChance;
+    private int currentPlatformHeightChance;
 
     //public ObejctPooler theObjectPool;
 
@@ -57,6 +59,7 @@ public class PlatformGenerator : MonoBehaviour {
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
         theCoinGenerator = FindObjectOfType<CoinGenerator>();
+        currentPlatformSpaceChance = 0;
 	}
 
     // Update is called once per frame
@@ -68,24 +71,19 @@ public class PlatformGenerator : MonoBehaviour {
 
             platformSelector = Random.Range(0, theObjectPools.Length);
 
-            heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange);
-
-            if (heightChange > maxHeight)
-            {
-                heightChange = maxHeight;
-            }
-            else if (heightChange < minHeight)
-            {
-                heightChange = minHeight;
-            }
+            
             if (Random.Range(0f,100f) < powerupThreshold)
             {
                 GameObject newPowerup = powerupPool.GetPooledObject();
                 newPowerup.transform.position = transform.position + new Vector3((distanceBetween / 2f) + 4.3f, Random.Range((powerupHeight/2),powerupHeight), 0f);
                 newPowerup.SetActive(true);
             }
-
-            transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, heightChange, transform.position.z);
+            if (DoWeAddSpace()){
+                transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, heightChange, transform.position.z);
+            }
+            else{
+                transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), heightChange, transform.position.z);
+            }
 
             //Instantiate(/*thePlatform*/ thePlatforms[platformSelector], transform.position, transform.rotation);
 
@@ -121,4 +119,43 @@ public class PlatformGenerator : MonoBehaviour {
 
         }
 	}
+
+    private bool DoWeAddSpace(){
+        int randomValueToDetermine = Random.Range(0, 100);
+        if(randomValueToDetermine <= currentPlatformSpaceChance){
+            currentPlatformSpaceChance = 0;
+            if (DoWeChangeHeight())
+            {
+                heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange);
+            }
+            else
+            {
+                heightChange = transform.position.y;
+            }
+            heightCheck();
+            return true;
+        }
+        currentPlatformSpaceChance += 5;
+        return false;
+    }
+
+    private bool DoWeChangeHeight(){
+        int randomValueToDetermine = Random.Range(0, 100);
+        if (randomValueToDetermine <= currentPlatformHeightChance)
+        {
+            currentPlatformHeightChance = 0;
+            return true;
+        }
+        currentPlatformHeightChance += 4;
+        return false;
+    }
+
+    private void heightCheck(){
+        if (heightChange > maxHeight){
+            heightChange = maxHeight;
+        }
+        else if (heightChange < minHeight){
+            heightChange = minHeight;
+        }
+    }
 }
