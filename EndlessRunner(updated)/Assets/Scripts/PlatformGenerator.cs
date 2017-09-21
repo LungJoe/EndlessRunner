@@ -79,10 +79,10 @@ public class PlatformGenerator : MonoBehaviour {
                 newPowerup.SetActive(true);
             }
             if (DoWeAddSpace()){
-                transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, heightChange, transform.position.z);
+                transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween - .1f, heightChange, transform.position.z);
             }
             else{
-                transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), heightChange, transform.position.z);
+                transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) - .1f, heightChange, transform.position.z);
             }
 
             //Instantiate(/*thePlatform*/ thePlatforms[platformSelector], transform.position, transform.rotation);
