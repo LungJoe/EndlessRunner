@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-
     public Transform platformGenerator;
     private Vector3 platformStartPoint;
 
@@ -15,12 +14,16 @@ public class GameManager : MonoBehaviour {
 
     private ScoreManager theScoreManager;
     public DeathMenu theDeathScreen;
+
+    public GameObject pauseButton;
+
     public bool powerupReset;
 	// Use this for initialization
 	void Start () {
         platformStartPoint = platformGenerator.position;
         playerStartPoint = thePlayer.transform.position;
         theScoreManager = FindObjectOfType<ScoreManager>();
+        pauseButton = GameObject.Find("PauseButton");
 	}
 	
 	// Update is called once per frame
@@ -28,12 +31,12 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-
     public void RestartGame()
     {
         theScoreManager.scoreIncreasing = false;
         thePlayer.gameObject.SetActive(false);
         theDeathScreen.gameObject.SetActive(true);
+        pauseButton.gameObject.SetActive(false);
         //coroutine runs by itself, independently -> can add in time delays(reason why not in update)
         //StartCoroutine("RestartGameCo");    
     }
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour {
     public void Reset()
     {
         theDeathScreen.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
 
         platformList = FindObjectsOfType<PlatformDestroyer>();
         for (int i = 0; i < platformList.Length; i++)
