@@ -35,8 +35,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4770658188165056}
-  - component: {fileID: 114799974282525740}
   - component: {fileID: 61522147444466634}
+  - component: {fileID: 114799974282525740}
   m_Layer: 8
   m_Name: New7x1 Platform
   m_TagString: Untagged
