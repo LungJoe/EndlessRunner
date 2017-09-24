@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1325731891029688, guid: d201c6f2f21dfbb429877667acf87238,
+  pooledObject: {fileID: 1803168395832038, guid: a1a4d656fd663ee408de232aff96c2bc,
     type: 2}
   pooledAmount: 2
 --- !u!1 &274332764
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 1661630198790422, guid: f44581b14c6b8164eb5eb93610bc644e,
     type: 2}
-  pooledAmount: 5
+  pooledAmount: 2
 --- !u!4 &528100582
 Transform:
   m_ObjectHideFlags: 0
@@ -1420,7 +1420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &663199719
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4745783303887414, guid: 898c8a30aa0493348889b74636028859, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.245569
+      value: -16.25
       objectReference: {fileID: 0}
     - target: {fileID: 4745783303887414, guid: 898c8a30aa0493348889b74636028859, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2707,6 +2707,7 @@ MonoBehaviour:
   platformGenerator: {fileID: 2029155164}
   thePlayer: {fileID: 1143465323}
   theDeathScreen: {fileID: 1340098431}
+  pauseButton: {fileID: 0}
   powerupReset: 0
 --- !u!4 &1064363560
 Transform:
@@ -2734,6 +2735,7 @@ GameObject:
   - component: {fileID: 1143465319}
   - component: {fileID: 1143465323}
   - component: {fileID: 1143465324}
+  - component: {fileID: 1143465326}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -2767,7 +2769,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1143465318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 1231a6018dd7c6349812138fa7c799f0, type: 2}
   m_IsTrigger: 0
@@ -2884,6 +2886,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!58 &1143465326
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143465318}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1231a6018dd7c6349812138fa7c799f0, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.92}
+  serializedVersion: 2
+  m_Radius: 0.93
 --- !u!1 &1198580147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,7 +2928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1932364541753088, guid: 898c8a30aa0493348889b74636028859,
+  pooledObject: {fileID: 1803168395832038, guid: a1a4d656fd663ee408de232aff96c2bc,
     type: 2}
   pooledAmount: 2
 --- !u!4 &1198580149
@@ -3224,7 +3241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1159383639356956, guid: cade963735292aa42b6e0b474456f93c,
+  pooledObject: {fileID: 1803168395832038, guid: a1a4d656fd663ee408de232aff96c2bc,
     type: 2}
   pooledAmount: 2
 --- !u!1 &1377084431
@@ -3544,7 +3561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1384795621937262, guid: 60538d35a4b13424898f53b982901e5e,
+  pooledObject: {fileID: 1803168395832038, guid: a1a4d656fd663ee408de232aff96c2bc,
     type: 2}
   pooledAmount: 2
 --- !u!1 &1602250423
@@ -3702,7 +3719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 1330275057897146, guid: e8589599e6626834abc4d21af91f966e,
     type: 2}
-  pooledAmount: 5
+  pooledAmount: 2
 --- !u!4 &1653046369
 Transform:
   m_ObjectHideFlags: 0
