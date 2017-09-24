@@ -75,7 +75,7 @@ public class PlatformGenerator : MonoBehaviour {
             if (Random.Range(0f,100f) < powerupThreshold)
             {
                 GameObject newPowerup = powerupPool.GetPooledObject();
-                newPowerup.transform.position = transform.position + new Vector3((distanceBetween / 2f) + 3f, Random.Range((powerupHeight/2),powerupHeight), 0f);
+                newPowerup.transform.position = transform.position + new Vector3((distanceBetween / 2f) + 4.3f, Random.Range((powerupHeight/2),powerupHeight), 0f);
                 newPowerup.SetActive(true);
             }
             if (DoWeAddSpace()){
@@ -104,7 +104,7 @@ public class PlatformGenerator : MonoBehaviour {
             {
                 GameObject newSpike = spikePool.GetPooledObject();
 
-                float spikeXPosition = Random.Range((-platformWidths[platformSelector]+3f) / 2f + 3f, (platformWidths[platformSelector]+3f) / 2f + 1.7f);
+                float spikeXPosition = Random.Range((-platformWidths[platformSelector]+4.3f) / 2f + 3f, (platformWidths[platformSelector]+4.3f) / 2f + 1.7f);
 
 
                 Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
