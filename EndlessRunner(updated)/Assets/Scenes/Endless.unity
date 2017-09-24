@@ -720,6 +720,7 @@ MonoBehaviour:
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpTime: 0.25
+  slideTime: 0
   grounded: 0
   WhatIsGround:
     serializedVersion: 2
@@ -1420,7 +1421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &663199719
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2937,6 +2938,7 @@ MonoBehaviour:
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpTime: 0.25
+  slideTime: 1
   grounded: 0
   WhatIsGround:
     serializedVersion: 2

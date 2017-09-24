@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour {
     public float jumpTime;
     private float jumpTimeCounter;
 
+    public float slideTime;
+    private float slideTimeCounter;
+
     private Rigidbody2D myRigidbody;
 
     private bool stoppedJumping;
@@ -35,15 +38,17 @@ public class PlayerController : MonoBehaviour {
     public AudioSource jumpSound;
     public AudioSource deathSound;
 
+    private bool isAttacking;
     private bool isSliding;
 
-    //private Collider2D myCollider;
+    //private Collider2D myCollider
 	// Use this for initialization
 	void Start () {
         myRigidbody = GetComponent<Rigidbody2D>();
        // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
+        slideTimeCounter = slideTime;
         speedMilestoneCount = speedIncreaseMilestone;
         moveSpeedStore = moveSpeed;
         speedMilestoneCountStore = speedMilestoneCount;
@@ -67,7 +72,7 @@ public class PlayerController : MonoBehaviour {
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)  && !isSliding && !isAttacking)
         {
             if (grounded)
             {
@@ -87,7 +92,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping )
         {
             if (jumpTimeCounter > 0)
             {
@@ -108,6 +113,7 @@ public class PlayerController : MonoBehaviour {
             if (grounded)
             {
                 isSliding = true;
+                slideTimeCounter -= Time.deltaTime;
             }
             else
             {
@@ -117,8 +123,24 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.S))
         {
             isSliding = false;
+            slideTimeCounter = slideTime;
         }
 
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            if (grounded)
+            {  
+                isAttacking = true;
+            }
+            else
+            {
+                isAttacking = false;
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            isAttacking = false;
+        }
 
         if (grounded)
         {
@@ -129,7 +151,7 @@ public class PlayerController : MonoBehaviour {
         myAnimator.SetBool("Sliding", isSliding);
         myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
-
+        myAnimator.SetBool("Attacking", isAttacking);
 	}
 
     void OnCollisionEnter2D(Collision2D other)
