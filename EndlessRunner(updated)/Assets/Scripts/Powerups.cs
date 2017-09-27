@@ -36,7 +36,7 @@ public class Powerups : MonoBehaviour {
     {
         if (other.name == "Player")
         {
-            thePowerupManager.ActivatePowerup(doublePoints, safeMode, powerupLength);
+            thePowerupManager.ActivatePowerup(doublePoints, safeMode, 180f);
         }
         gameObject.SetActive(false);
     }

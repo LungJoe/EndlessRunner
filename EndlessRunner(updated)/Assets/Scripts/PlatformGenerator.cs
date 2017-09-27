@@ -7,14 +7,19 @@ public class PlatformGenerator : MonoBehaviour {
     
     public GameObject thePlatform;
     public Transform generationPoint;
+    public PlayerController thePlayer;
     public float distanceBetween;
-    
+    private int playerModifier;
+    private int prevPlayerMod;
     private float platformWidth;
     
     public float distanceBetweenMin;
     public float distanceBetweenMax;
-    
-    
+
+    private float distanceBetweenMinCurrent;
+    private float distanceBetweenMaxCurrent;
+
+
     //public GameObject[] thePlatforms;
     private int platformSelector;
     private float[] platformWidths;
@@ -60,14 +65,25 @@ public class PlatformGenerator : MonoBehaviour {
         maxHeight = maxHeightPoint.position.y;
         theCoinGenerator = FindObjectOfType<CoinGenerator>();
         currentPlatformSpaceChance = 0;
-	}
+        playerModifier = (int)(thePlayer.moveSpeed / 10);
+        prevPlayerMod = playerModifier;
+        distanceBetweenMinCurrent = distanceBetweenMin * playerModifier;
+        distanceBetweenMaxCurrent = distanceBetweenMax * playerModifier;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        playerModifier = (int)(thePlayer.moveSpeed / 10);
+        if(prevPlayerMod != playerModifier)
+        {
+            prevPlayerMod = playerModifier;
+            distanceBetweenMinCurrent = distanceBetweenMin * playerModifier;
+            distanceBetweenMaxCurrent = distanceBetweenMax * playerModifier;
+        }
         if (transform.position.x < generationPoint.position.x)
         {
-            distanceBetween = Random.Range(distanceBetweenMin, distanceBetweenMax);
+            distanceBetween = Random.Range(distanceBetweenMinCurrent, distanceBetweenMaxCurrent);
 
             platformSelector = Random.Range(0, theObjectPools.Length);
 

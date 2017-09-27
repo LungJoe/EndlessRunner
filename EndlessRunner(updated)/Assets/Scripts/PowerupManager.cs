@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerupManager : MonoBehaviour {
-    private bool doublePoints;
-    private bool safeMode;
+    public bool doublePoints;
+    public bool safeMode;
 
     public bool powerupActive;
 
@@ -28,7 +28,7 @@ public class PowerupManager : MonoBehaviour {
 	void Update () {
         if (powerupActive == true)
         {
-            powerupLengthCounter -= Time.deltaTime;
+            powerupLengthCounter--;
 
             if (theGameManager.powerupReset)
             {
@@ -52,6 +52,8 @@ public class PowerupManager : MonoBehaviour {
                 theScoreManager.pointsPerSecond = normalPointsPerSecond;
                 theScoreManager.shouldDouble = false;
                 thePlatformGenerator.randomSpikeThreshold = spikeRate;
+                doublePoints = false;
+                safeMode = false;
                 
                 powerupActive = false;
             }
