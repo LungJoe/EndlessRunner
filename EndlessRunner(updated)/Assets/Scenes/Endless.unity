@@ -235,6 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f960388908aadd34281ce7fec7e88211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doublePoints: 0
+  safeMode: 0
   powerupActive: 0
 --- !u!4 &48108286
 Transform:
@@ -5411,22 +5413,22 @@ MonoBehaviour:
   thePlatform: {fileID: 1932364541753088, guid: 898c8a30aa0493348889b74636028859,
     type: 2}
   generationPoint: {fileID: 812833124}
+  thePlayer: {fileID: 1143465323}
   distanceBetween: 3
-  distanceBetweenMin: 1
-  distanceBetweenMax: 5
+  distanceBetweenMin: 4
+  distanceBetweenMax: 9
   theObjectPools:
   - {fileID: 1198580148}
   - {fileID: 1351364132}
   - {fileID: 1577117590}
   - {fileID: 220620502}
-  maxHeightPoint: {fileID: 2083788270}
-  maxHeightChange: 2.5
   randomCoinThreshold: 75
-  randomSpikeThreshold: 25
+  spikeDifficulty: 10
+  randomSpikeThreshold: 0
   spikePool: {fileID: 1653046368}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
-  powerupThreshold: 25
+  powerluck: 25
 --- !u!4 &2029155164
 Transform:
   m_ObjectHideFlags: 0

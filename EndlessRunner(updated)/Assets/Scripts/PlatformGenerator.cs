@@ -25,22 +25,18 @@ public class PlatformGenerator : MonoBehaviour {
     private float[] platformWidths;
 
     public ObejctPooler[] theObjectPools;
-
-    private float minHeight;
-    public Transform maxHeightPoint;
-    private float maxHeight;
-    public float maxHeightChange;
-    private float heightChange;
     
     private CoinGenerator theCoinGenerator;
     public float randomCoinThreshold;
 
+    public float spikeDifficulty;
     public float randomSpikeThreshold;
     public ObejctPooler spikePool;
 
     public float powerupHeight;
     public ObejctPooler powerupPool;
-    public float powerupThreshold;
+    private float powerupThreshold;
+    public float powerluck;
     private int currentPlatformSpaceChance;
     private int currentPlatformHeightChance;
 
@@ -61,8 +57,6 @@ public class PlatformGenerator : MonoBehaviour {
             platformWidths[i] = theObjectPools[i].pooledObject.GetComponent<BoxCollider2D>().size.x;
         }
 
-        minHeight = transform.position.y;
-        maxHeight = maxHeightPoint.position.y;
         theCoinGenerator = FindObjectOfType<CoinGenerator>();
         currentPlatformSpaceChance = 0;
         playerModifier = (int)(thePlayer.moveSpeed / 10);
@@ -88,7 +82,7 @@ public class PlatformGenerator : MonoBehaviour {
             platformSelector = Random.Range(0, theObjectPools.Length);
 
             
-            if (Random.Range(0f,100f) < powerupThreshold)
+            if (generatePowerup())
             {
                 GameObject newPowerup = powerupPool.GetPooledObject();
                 newPowerup.transform.position = transform.position + new Vector3((distanceBetween / 2f), Random.Range((powerupHeight/2),powerupHeight), 0f);
@@ -116,7 +110,7 @@ public class PlatformGenerator : MonoBehaviour {
             }
             
             
-            if (Random.Range(0f, 100f) < randomSpikeThreshold)
+            if (generateSpike())
             {
                 GameObject newSpike = spikePool.GetPooledObject();
 
@@ -140,38 +134,33 @@ public class PlatformGenerator : MonoBehaviour {
         int randomValueToDetermine = Random.Range(0, 100);
         if(randomValueToDetermine <= currentPlatformSpaceChance){
             currentPlatformSpaceChance = 0;
-            if (DoWeChangeHeight())
-            {
-                heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange);
-            }
-            else
-            {
-                heightChange = transform.position.y;
-            }
-            heightCheck();
             return true;
         }
         currentPlatformSpaceChance += 5;
         return false;
     }
 
-    private bool DoWeChangeHeight(){
+    private bool generateSpike()
+    {
         int randomValueToDetermine = Random.Range(0, 100);
-        if (randomValueToDetermine <= currentPlatformHeightChance)
+        if (randomValueToDetermine <= randomSpikeThreshold)
         {
-            currentPlatformHeightChance = 0;
+            randomSpikeThreshold = spikeDifficulty*(playerModifier-1);
             return true;
         }
-        currentPlatformHeightChance += 4;
+        randomSpikeThreshold += 2;
         return false;
     }
 
-    private void heightCheck(){
-        if (heightChange > maxHeight){
-            heightChange = maxHeight;
+    private bool generatePowerup()
+    {
+        int randomValueToDetermine = Random.Range(0, 100);
+        if (randomValueToDetermine <= powerupThreshold)
+        {
+            powerupThreshold = powerluck/(playerModifier);
+            return true;
         }
-        else if (heightChange < minHeight){
-            heightChange = minHeight;
-        }
+        powerupThreshold += 2;
+        return false;
     }
 }
