@@ -3665,7 +3665,7 @@ PolygonCollider2D:
       - {x: 0.44140625, y: 0.375}
       - {x: 0.76953125, y: 0.4296875}
       - {x: 0.95703125, y: 0.46875}
-      - {x: 1.1367188, y: 0.5234375}
+      - {x: 1.1201153, y: 0.29180503}
       - {x: 1.3085938, y: 0.53125}
       - {x: 1.3085938, y: 0.578125}
       - {x: 1.2773438, y: 0.6171875}
@@ -3833,7 +3833,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1143465318}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
