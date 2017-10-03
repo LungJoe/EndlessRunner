@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4cf7f74752add4c98d97cfebffbe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playGameLevel: Endless
+  playGameLevel: Game Menu
 --- !u!1 &2013104970
 GameObject:
   m_ObjectHideFlags: 0

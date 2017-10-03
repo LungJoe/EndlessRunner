@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour {
     public AudioSource jumpSound;
     public AudioSource deathSound;
 
-    private bool isAttacking;
-    private bool isSliding;
+    public bool isAttacking;
+    public bool isSliding;
 
     //private Collider2D myCollider
 	// Use this for initialization
