@@ -831,7 +831,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 93118671}
-  - component: {fileID: 93118674}
   - component: {fileID: 93118673}
   - component: {fileID: 93118672}
   m_Layer: 8
@@ -851,8 +850,8 @@ Transform:
   m_LocalPosition: {x: -6.25, y: 2.75, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 304106696}
-  m_RootOrder: 7
+  m_Father: {fileID: 1405334993}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &93118672
 BoxCollider2D:
@@ -911,13 +910,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &93118674
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93118670}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &165082547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,8 +1025,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2106646897}
   - {fileID: 351953672}
+  - {fileID: 2106646897}
   - {fileID: 1631116850}
   - {fileID: 499587722}
   m_Father: {fileID: 0}
@@ -1166,12 +1158,7 @@ Transform:
   - {fileID: 1892297212}
   - {fileID: 1300026474}
   - {fileID: 17845273}
-  - {fileID: 314015984}
-  - {fileID: 629510472}
-  - {fileID: 1371014369}
-  - {fileID: 1985652849}
-  - {fileID: 93118671}
-  - {fileID: 1774061279}
+  - {fileID: 1405334993}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1183,7 +1170,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 314015984}
-  - component: {fileID: 314015987}
   - component: {fileID: 314015985}
   - component: {fileID: 314015986}
   m_Layer: 8
@@ -1199,12 +1185,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314015983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.34, y: -2.76, z: 0}
   m_LocalScale: {x: 2.5993032, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 304106696}
-  m_RootOrder: 3
+  m_Father: {fileID: 1405334993}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &314015985
 MeshRenderer:
@@ -1263,13 +1249,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!33 &314015987
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 314015983}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &351953671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1261,7 @@ GameObject:
   - component: {fileID: 351953674}
   - component: {fileID: 351953673}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Stage 1 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1300,7 +1279,7 @@ RectTransform:
   m_Children:
   - {fileID: 558002454}
   m_Father: {fileID: 288460442}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1404,7 +1383,7 @@ GameObject:
   - component: {fileID: 499587724}
   - component: {fileID: 499587723}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Back Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1596,7 +1575,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 629510472}
-  - component: {fileID: 629510475}
   - component: {fileID: 629510474}
   - component: {fileID: 629510473}
   m_Layer: 8
@@ -1616,8 +1594,8 @@ Transform:
   m_LocalPosition: {x: -8.99, y: -3.82, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 304106696}
-  m_RootOrder: 4
+  m_Father: {fileID: 1405334993}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &629510473
 BoxCollider2D:
@@ -1676,13 +1654,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &629510475
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 629510471}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &834031353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,7 +2393,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1371014369}
-  - component: {fileID: 1371014372}
   - component: {fileID: 1371014371}
   - component: {fileID: 1371014370}
   m_Layer: 8
@@ -2442,8 +2412,8 @@ Transform:
   m_LocalPosition: {x: -9, y: -1.03, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 304106696}
-  m_RootOrder: 5
+  m_Father: {fileID: 1405334993}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1371014370
 BoxCollider2D:
@@ -2502,13 +2472,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &1371014372
-MeshFilter:
+--- !u!1 &1405334992
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1371014368}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1405334993}
+  m_Layer: 0
+  m_Name: Box Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1405334993
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405334992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 314015984}
+  - {fileID: 629510472}
+  - {fileID: 1371014369}
+  - {fileID: 1985652849}
+  - {fileID: 93118671}
+  - {fileID: 1774061279}
+  m_Father: {fileID: 304106696}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603244024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,7 +2592,7 @@ GameObject:
   - component: {fileID: 1631116852}
   - component: {fileID: 1631116851}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Stage 3 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2713,7 +2710,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1774061279}
-  - component: {fileID: 1774061282}
   - component: {fileID: 1774061281}
   - component: {fileID: 1774061280}
   m_Layer: 8
@@ -2733,8 +2729,8 @@ Transform:
   m_LocalPosition: {x: -8.84, y: 1.69, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 304106696}
-  m_RootOrder: 8
+  m_Father: {fileID: 1405334993}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1774061280
 BoxCollider2D:
@@ -2793,13 +2789,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &1774061282
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1774061278}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1892297211
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,7 +3540,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1985652849}
-  - component: {fileID: 1985652852}
   - component: {fileID: 1985652851}
   - component: {fileID: 1985652850}
   m_Layer: 8
@@ -3571,8 +3559,8 @@ Transform:
   m_LocalPosition: {x: -6.3, y: -0.01, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 304106696}
-  m_RootOrder: 6
+  m_Father: {fileID: 1405334993}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1985652850
 BoxCollider2D:
@@ -3631,13 +3619,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &1985652852
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1985652848}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2106646896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,7 +3631,7 @@ GameObject:
   - component: {fileID: 2106646899}
   - component: {fileID: 2106646898}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Stage 2 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3668,7 +3649,7 @@ RectTransform:
   m_Children:
   - {fileID: 1919243142}
   m_Father: {fileID: 288460442}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
