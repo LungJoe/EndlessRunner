@@ -977,6 +977,8 @@ MonoBehaviour:
   theGameManager: {fileID: 1064363559}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  isAttacking: 0
+  isSliding: 0
 --- !u!50 &384303204
 Rigidbody2D:
   serializedVersion: 4
@@ -3495,6 +3497,8 @@ MonoBehaviour:
   theGameManager: {fileID: 1064363559}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  isAttacking: 0
+  isSliding: 0
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3
@@ -4294,7 +4298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1627120095876554, guid: 68207ef7232291b4194ca6d0a400a5f1,
+  pooledObject: {fileID: 1288720729424142, guid: 912f30c57a0e3c34dac704374c6713da,
     type: 2}
   pooledAmount: 2
 --- !u!1 &1377084431
@@ -4801,7 +4805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 1330275057897146, guid: e8589599e6626834abc4d21af91f966e,
     type: 2}
-  pooledAmount: 5
+  pooledAmount: 0
 --- !u!4 &1653046369
 Transform:
   m_ObjectHideFlags: 0
