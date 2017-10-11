@@ -34,7 +34,7 @@ public class Scrolling : MonoBehaviour {
 			ScrollRight ();
 	}
 */
-	private void Update() {
+	private void FixedUpdate() {
 
 		float deltaX = cameraTransform.position.x - lastCameraX;
 		transform.position += Vector3.right * (deltaX * parallaxSpeed);
