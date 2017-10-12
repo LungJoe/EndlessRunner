@@ -30,8 +30,11 @@ public class PlatformGenerator : MonoBehaviour {
     public float randomCoinThreshold;
 
     public float spikeDifficulty;
+    public float slideDifficulty;
     public float randomSpikeThreshold;
+    public float randomSlideObstacleThreshold;
     public ObejctPooler spikePool;
+    public ObejctPooler slideObstaclePool;
 
     public float powerupHeight;
     public ObejctPooler powerupPool;
@@ -124,7 +127,22 @@ public class PlatformGenerator : MonoBehaviour {
                 newSpike.transform.rotation = transform.rotation;
                 newSpike.SetActive(true);
             }
-            
+
+            if (generateSlideObstacle())
+            {
+                GameObject newSlideObstacle = slideObstaclePool.GetPooledObject();
+
+                float slideObstacleXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 3f, (platformWidths[platformSelector]) / 2f - 3f);
+
+                Vector3 slideObstaclePosition = new Vector3(slideObstacleXPosition, 5f, 0f);
+
+                newSlideObstacle.transform.position = transform.position + slideObstaclePosition;
+                newSlideObstacle.transform.rotation = transform.rotation;
+                newSlideObstacle.SetActive(true);
+
+
+            }
+
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) , transform.position.y, transform.position.z);
 
         }
@@ -150,6 +168,19 @@ public class PlatformGenerator : MonoBehaviour {
         }
         randomSpikeThreshold += 2;
         return false;
+    }
+
+    private bool generateSlideObstacle()
+    {
+        int randomValueToDetermine = Random.Range(0, 100);
+        if (randomValueToDetermine <= randomSlideObstacleThreshold)
+        {
+            randomSlideObstacleThreshold = slideDifficulty * (playerModifier - 1);
+            return true;
+        }
+        randomSlideObstacleThreshold += 2;
+        return false;
+
     }
 
     private bool generatePowerup()

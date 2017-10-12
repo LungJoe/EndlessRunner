@@ -1967,6 +1967,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &673308180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 673308182}
+  - component: {fileID: 673308181}
+  m_Layer: 0
+  m_Name: SlideObstaclePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &673308181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673308180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1351397352531284, guid: f49b1500ccfda364b8cf459e008d61cd,
+    type: 2}
+  pooledAmount: 4
+--- !u!4 &673308182
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673308180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.307963, y: 0.6215948, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694822038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3744,6 +3787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idle: {fileID: 1143465328}
   jump: {fileID: 1143465326}
+  attack: {fileID: 0}
   slide: {fileID: 1143465329}
   frame1: {fileID: 1143465326}
   frame2: {fileID: 1143465325}
@@ -4298,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1288720729424142, guid: 912f30c57a0e3c34dac704374c6713da,
+  pooledObject: {fileID: 1627120095876554, guid: 68207ef7232291b4194ca6d0a400a5f1,
     type: 2}
   pooledAmount: 2
 --- !u!1 &1377084431
@@ -4798,7 +4842,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653046367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
@@ -5432,8 +5476,11 @@ MonoBehaviour:
   - {fileID: 220620502}
   randomCoinThreshold: 75
   spikeDifficulty: 10
+  slideDifficulty: 10
   randomSpikeThreshold: 0
+  randomSlideObstacleThreshold: 0
   spikePool: {fileID: 1653046368}
+  slideObstaclePool: {fileID: 673308181}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
   powerluck: 25
