@@ -160,6 +160,10 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.tag == "killbox")
         {
             theGameManager.RestartGame();
+            isSliding = false;
+            isAttacking = false;
+            stoppedJumping = false;
+            canDoubleJump = false;
             moveSpeed = moveSpeedStore;
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilstoneStore;
