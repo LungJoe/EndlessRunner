@@ -967,7 +967,7 @@ MonoBehaviour:
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpTime: 0.25
-  slideTime: 0
+  holdTime: 1.5
   grounded: 0
   WhatIsGround:
     serializedVersion: 2
@@ -3530,7 +3530,7 @@ MonoBehaviour:
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpTime: 0.25
-  slideTime: 1
+  holdTime: 1.5
   grounded: 0
   WhatIsGround:
     serializedVersion: 2

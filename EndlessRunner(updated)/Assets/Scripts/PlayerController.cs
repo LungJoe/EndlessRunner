@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpTime;
     private float jumpTimeCounter;
 
-    public float slideTime;
-    private float slideTimeCounter;
+    private float startTime = 0f;
+    public float holdTime = 1.5f;
 
     private Rigidbody2D myRigidbody;
 
@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour {
        // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
-        slideTimeCounter = slideTime;
         speedMilestoneCount = speedIncreaseMilestone;
         moveSpeedStore = moveSpeed;
         speedMilestoneCountStore = speedMilestoneCount;
@@ -110,36 +109,48 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (grounded)
+            startTime = Time.time;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (startTime + holdTime <= Time.time)
             {
-                isSliding = true;
-                slideTimeCounter -= Time.deltaTime;
+                    isSliding = false;
             }
             else
             {
-                isSliding = false;
+                    isSliding = true;
             }
-        }
-        if(Input.GetKeyUp(KeyCode.S))
-        {
-            isSliding = false;
-            slideTimeCounter = slideTime;
+            
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyUp(KeyCode.S))
         {
-            if (grounded)
-            {  
-                isAttacking = true;
-            }
-            else
+            isSliding = false;
+            startTime = 0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            startTime = Time.time;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            if (startTime + holdTime <= Time.time)
             {
                 isAttacking = false;
             }
+            else
+            {
+                isAttacking  = true;
+            }
+
         }
-        if(Input.GetKeyUp(KeyCode.A))
+
+        else if (Input.GetKeyUp(KeyCode.A))
         {
             isAttacking = false;
+            startTime = 0f;
         }
 
         if (grounded)
