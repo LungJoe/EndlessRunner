@@ -8,6 +8,9 @@ public class GameMenu : MonoBehaviour
     public string playEndless2;
     public string playEndless3;
     public string MainMenu;
+    public string ScoreBoard;
+    public string gameMenu;
+
     public void PlayStage1()
     {
         Application.LoadLevel(playEndless);
@@ -21,10 +24,20 @@ public class GameMenu : MonoBehaviour
     {
         Application.LoadLevel(playEndless3);
     }
+
+    public void ViewScoreboard()
+    {
+        Application.LoadLevel(ScoreBoard);
+    }
+
     public void GoBackToMainMenu()
     {
         Application.LoadLevel(MainMenu);
     }
 
+    public void GoToGameMenu()
+    {
+        Application.LoadLevel(gameMenu);
+    }
 
 }
