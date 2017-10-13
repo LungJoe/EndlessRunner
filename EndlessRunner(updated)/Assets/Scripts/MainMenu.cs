@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
@@ -9,12 +10,12 @@ public class MainMenu : MonoBehaviour {
 
     public void PlayGame()
     {
-        Application.LoadLevel(playGameLevel);
+        SceneManager.LoadScene(playGameLevel);
     }
 
-    public void optionsMenu()
+    public void OptionsMenu()
     {
-        Application.LoadLevel(options);
+        SceneManager.LoadScene(options);
     }
 
     public void QuitGame()

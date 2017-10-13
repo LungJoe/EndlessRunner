@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
+
 public class Options : MonoBehaviour {
 
     public string mainMenu;
@@ -66,7 +68,7 @@ public class Options : MonoBehaviour {
     {
         string jsonData = JsonUtility.ToJson(gameSettings, true);
         File.WriteAllText(Application.dataPath + "/gamesettings.json", jsonData);
-        Application.LoadLevel(mainMenu);
+        SceneManager.LoadScene(mainMenu);
     }
 
     public void LoadSettings()
