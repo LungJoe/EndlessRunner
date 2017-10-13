@@ -1092,7 +1092,7 @@ MonoBehaviour:
   playEndless3: 
   MainMenu: 
   ScoreBoard: 
-  gameMenu: Game Menu
+  gameMenu: 
 --- !u!1 &886292782
 GameObject:
   m_ObjectHideFlags: 0
