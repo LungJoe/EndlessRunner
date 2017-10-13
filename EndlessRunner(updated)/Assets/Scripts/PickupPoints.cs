@@ -27,6 +27,7 @@ public class PickupPoints : MonoBehaviour {
         if (other.gameObject.name == "Player")
         {
             theScoreManager.AddScore(scoreToGive);
+            theScoreManager.AddCoin();
             gameObject.SetActive(false);
 
             if (coinSound.isPlaying)
