@@ -1,12 +1,14 @@
 fileFormatVersion: 2
 guid: 22ff96d14fd94d94fba0020a33b82047
-timeCreated: 1504577445
+timeCreated: 1508021143
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: spritesheet_items_0
     21300002: powerup1
     21300004: powerup2
+    21300006: powerup3
+    21300008: powerup4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -97,10 +99,10 @@ TextureImporter:
         serializedVersion: 2
         x: 669
         y: 424
-        width: 69
+        width: 70
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -115,6 +117,34 @@ TextureImporter:
         height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: powerup3
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 168
+        width: 70
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: powerup4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 40
+        width: 70
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

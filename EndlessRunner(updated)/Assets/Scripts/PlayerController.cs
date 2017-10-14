@@ -34,12 +34,13 @@ public class PlayerController : MonoBehaviour {
     private Animator myAnimator;
 
     public GameManager theGameManager;
-
+    public ScoreManager scorer;
     public AudioSource jumpSound;
     public AudioSource deathSound;
 
     public bool isAttacking;
     public bool isSliding;
+    public bool invincible = false;
 
     //private Collider2D myCollider
 	// Use this for initialization
@@ -168,7 +169,7 @@ public class PlayerController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D other)
     {
         //tagging an object -> easy way to detect what an object is(under object name in spector)
-        if (other.gameObject.tag == "killbox")
+        if (other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4)))
         {
             theGameManager.RestartGame();
             isSliding = false;
@@ -180,6 +181,11 @@ public class PlayerController : MonoBehaviour {
             speedIncreaseMilestone = speedIncreaseMilstoneStore;
             deathSound.Play();
 
+        }
+        if(other.gameObject.tag == "killbox" && invincible)
+        {
+            other.gameObject.SetActive(false);
+            scorer.AddScore(200);
         }
 
     }

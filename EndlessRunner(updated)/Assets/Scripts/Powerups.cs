@@ -6,7 +6,7 @@ public class Powerups : MonoBehaviour {
 
     public bool doublePoints;
     public bool safeMode;
-
+    public bool invincible;
     public float powerupLength;
 
     private PowerupManager thePowerupManager;
@@ -19,12 +19,14 @@ public class Powerups : MonoBehaviour {
 
     void Awake()
     {
-        int powerupSelector = Random.Range(0, 2);
+        int powerupSelector = Random.Range(0, 3);
         switch (powerupSelector)
         {
             case 0: doublePoints = true;
                 break;
             case 1: safeMode = true;
+                break;
+            case 2: invincible = true;
                 break;
         }
 
@@ -36,7 +38,7 @@ public class Powerups : MonoBehaviour {
     {
         if (other.name == "Player")
         {
-            thePowerupManager.ActivatePowerup(doublePoints, safeMode, 180f);
+            thePowerupManager.ActivatePowerup(doublePoints, safeMode, invincible, 180f);
         }
         gameObject.SetActive(false);
     }

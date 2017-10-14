@@ -5,7 +5,9 @@ using UnityEngine;
 public class PowerupManager : MonoBehaviour {
     public bool doublePoints;
     public bool safeMode;
+    public bool noDeathMode;
 
+    public PlayerController player;
     public bool powerupActive;
 
     private float powerupLengthCounter;
@@ -22,6 +24,7 @@ public class PowerupManager : MonoBehaviour {
         theScoreManager = FindObjectOfType<ScoreManager>();
         thePlatformGenerator = FindObjectOfType<PlatformGenerator>();
         theGameManager = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -47,23 +50,29 @@ public class PowerupManager : MonoBehaviour {
                 thePlatformGenerator.randomSpikeThreshold = 0;
             }
 
+            if (noDeathMode)
+            {
+                player.invincible = true;
+            }
             if (powerupLengthCounter <= 0)
             {
                 theScoreManager.pointsPerSecond = normalPointsPerSecond;
                 theScoreManager.shouldDouble = false;
                 thePlatformGenerator.randomSpikeThreshold = spikeRate;
+                player.invincible = false;
                 doublePoints = false;
                 safeMode = false;
-                
+                noDeathMode = false;
                 powerupActive = false;
             }
         }
 	}
 
-    public void ActivatePowerup(bool points, bool safe, float time)
+    public void ActivatePowerup(bool points, bool safe, bool noDeath, float time)
     {
         doublePoints = points;
         safeMode = safe;
+        noDeathMode = noDeath;
         powerupLengthCounter = time;
 
         normalPointsPerSecond = theScoreManager.pointsPerSecond;

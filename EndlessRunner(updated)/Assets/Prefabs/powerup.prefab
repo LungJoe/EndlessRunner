@@ -71,10 +71,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePoints: 0
   safeMode: 0
+  invincible: 0
   powerupLength: 5
   powerupSprites:
   - {fileID: 21300002, guid: 22ff96d14fd94d94fba0020a33b82047, type: 3}
   - {fileID: 21300004, guid: 22ff96d14fd94d94fba0020a33b82047, type: 3}
+  - {fileID: 21300006, guid: 22ff96d14fd94d94fba0020a33b82047, type: 3}
 --- !u!114 &114689166791636238
 MonoBehaviour:
   m_ObjectHideFlags: 1

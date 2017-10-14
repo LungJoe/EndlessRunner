@@ -55,8 +55,7 @@ public class GameManager : MonoBehaviour {
         platformGenerator.position = platformStartPoint;
         thePlayer.gameObject.SetActive(true);
 
-        theScoreManager.scoreCount = 0;
-        theScoreManager.scoreIncreasing = true;
+        theScoreManager.Reset();
         powerupReset = true;    
     }
 

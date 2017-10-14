@@ -77,17 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -168,6 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePoints: 0
   safeMode: 0
+  noDeathMode: 0
+  player: {fileID: 0}
   powerupActive: 0
 --- !u!4 &48108286
 Transform:
@@ -590,6 +590,7 @@ RectTransform:
   - {fileID: 904932513}
   - {fileID: 1472906473}
   - {fileID: 736872777}
+  - {fileID: 668782578}
   - {fileID: 2021710862}
   - {fileID: 1340098430}
   - {fileID: 1602250424}
@@ -1041,7 +1042,7 @@ MonoBehaviour:
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpTime: 0.25
-  slideTime: 0
+  holdTime: 1.5
   grounded: 0
   WhatIsGround:
     serializedVersion: 2
@@ -1049,10 +1050,12 @@ MonoBehaviour:
   groundCheck: {fileID: 1255616821}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
+  scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   isAttacking: 0
   isSliding: 0
+  invincible: 0
 --- !u!50 &384303204
 Rigidbody2D:
   serializedVersion: 4
@@ -1899,6 +1902,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &668782577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 668782578}
+  - component: {fileID: 668782580}
+  - component: {fileID: 668782579}
+  m_Layer: 5
+  m_Name: CoinText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &668782578
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668782577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 212880571}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -122.6, y: -79.35}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &668782579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668782577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 22
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Coins: 0'
+--- !u!222 &668782580
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668782577}
 --- !u!1 &694822038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,7 +3341,7 @@ RectTransform:
   m_Children:
   - {fileID: 1605507697}
   m_Father: {fileID: 212880571}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3630,7 +3707,7 @@ MonoBehaviour:
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpTime: 0.25
-  slideTime: 1
+  holdTime: 1.5
   grounded: 0
   WhatIsGround:
     serializedVersion: 2
@@ -3638,10 +3715,12 @@ MonoBehaviour:
   groundCheck: {fileID: 972066577}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
+  scorer: {fileID: 2021710863}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   isAttacking: 0
   isSliding: 0
+  invincible: 0
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3
@@ -4347,7 +4426,7 @@ RectTransform:
   - {fileID: 871961372}
   - {fileID: 1377084432}
   m_Father: {fileID: 212880571}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4941,7 +5020,7 @@ RectTransform:
   - {fileID: 869966012}
   - {fileID: 480482149}
   m_Father: {fileID: 212880571}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5583,7 +5662,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 212880571}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5603,8 +5682,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1472906474}
   highScoreText: {fileID: 736872775}
+  coinText: {fileID: 668782579}
   scoreCount: 0
   highScoreCount: 0
+  coinCount: 0
   pointsPerSecond: 5
   scoreIncreasing: 1
   shouldDouble: 0
@@ -5649,8 +5730,11 @@ MonoBehaviour:
   - {fileID: 220620502}
   randomCoinThreshold: 75
   spikeDifficulty: 10
+  slideDifficulty: 0
   randomSpikeThreshold: 0
+  randomSlideObstacleThreshold: 0
   spikePool: {fileID: 1653046368}
+  slideObstaclePool: {fileID: 0}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
   powerluck: 25
