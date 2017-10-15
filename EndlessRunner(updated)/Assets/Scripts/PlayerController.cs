@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour {
 
     public float speedMultiplier;
     public float speedIncreaseMilestone;
+    public float speedCap;
     private float speedMilestoneCount;
 
     public float jumpTime;
     private float jumpTimeCounter;
 
     private float startTime = 0f;
-    public float holdTime = 1.5f;
+    public float holdTime = 1.0f;
 
     private Rigidbody2D myRigidbody;
 
@@ -65,9 +66,12 @@ public class PlayerController : MonoBehaviour {
 
         if (transform.position.x > speedMilestoneCount)
         {
-            speedMilestoneCount += speedIncreaseMilestone;
-            speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
-            moveSpeed = moveSpeed * speedMultiplier;
+            if (moveSpeed <= speedCap)
+            {
+                speedMilestoneCount += speedIncreaseMilestone;
+                speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
+                moveSpeed = moveSpeed * speedMultiplier;
+            }
         }
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
@@ -108,11 +112,11 @@ public class PlayerController : MonoBehaviour {
             stoppedJumping = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1))
         {
             startTime = Time.time;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1))
         {
             if (startTime + holdTime <= Time.time)
             {
@@ -124,8 +128,7 @@ public class PlayerController : MonoBehaviour {
             }
             
         }
-
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1))
         {
             isSliding = false;
             startTime = 0f;

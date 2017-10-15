@@ -1041,6 +1041,7 @@ MonoBehaviour:
   jumpForce: 10
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
+  speedCap: 0
   jumpTime: 0.25
   holdTime: 1.5
   grounded: 0
@@ -3706,6 +3707,7 @@ MonoBehaviour:
   jumpForce: 15
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
+  speedCap: 14
   jumpTime: 0.25
   holdTime: 1.5
   grounded: 0

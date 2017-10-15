@@ -12,9 +12,11 @@ public class ScoreManager : MonoBehaviour {
 
     public float scoreCount;
     public float highScoreCount;
+    private float scoreCountStore;
     public int coinCount;
 
     public float pointsPerSecond;
+    private float pointsPerSecondStore;
     private float timer;
 
     public bool scoreIncreasing;
@@ -27,6 +29,7 @@ public class ScoreManager : MonoBehaviour {
         {
             highScoreCount = PlayerPrefs.GetFloat("HighScore");
         }
+        pointsPerSecondStore = pointsPerSecond;
 	}
 	
 	// Update is called once per frame
@@ -68,5 +71,6 @@ public class ScoreManager : MonoBehaviour {
         scoreIncreasing = true;
         coinCount = 0;
         scoreCount = 0;
+        pointsPerSecond = pointsPerSecondStore;
     }
 }

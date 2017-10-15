@@ -237,6 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePoints: 0
   safeMode: 0
+  noDeathMode: 0
+  player: {fileID: 0}
   powerupActive: 0
 --- !u!4 &48108286
 Transform:
@@ -966,6 +968,7 @@ MonoBehaviour:
   jumpForce: 10
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
+  speedCap: 0
   jumpTime: 0.25
   holdTime: 1.5
   grounded: 0
@@ -975,10 +978,12 @@ MonoBehaviour:
   groundCheck: {fileID: 1255616821}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
+  scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   isAttacking: 0
   isSliding: 0
+  invincible: 0
 --- !u!50 &384303204
 Rigidbody2D:
   serializedVersion: 4
@@ -3529,6 +3534,7 @@ MonoBehaviour:
   jumpForce: 10
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
+  speedCap: 14
   jumpTime: 0.25
   holdTime: 1.5
   grounded: 0
@@ -3538,10 +3544,12 @@ MonoBehaviour:
   groundCheck: {fileID: 972066577}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
+  scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   isAttacking: 0
   isSliding: 0
+  invincible: 0
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3
@@ -5430,8 +5438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1472906474}
   highScoreText: {fileID: 736872775}
+  coinText: {fileID: 0}
   scoreCount: 0
   highScoreCount: 0
+  coinCount: 0
   pointsPerSecond: 5
   scoreIncreasing: 1
   shouldDouble: 0

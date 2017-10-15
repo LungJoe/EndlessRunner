@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour {
         thePlayer.gameObject.SetActive(false);
         theDeathScreen.gameObject.SetActive(true);
         pauseButton.gameObject.SetActive(false);
+       // thePlayer.speedMultiplier = 0;
+      //  thePlayer.speedIncreaseMilestone = 0;
+
         //coroutine runs by itself, independently -> can add in time delays(reason why not in update)
         //StartCoroutine("RestartGameCo");    
     }
