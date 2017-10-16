@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
@@ -13,31 +14,31 @@ public class GameMenu : MonoBehaviour
 
     public void PlayStage1()
     {
-        Application.LoadLevel(playEndless);
+        SceneManager.LoadScene(playEndless);
     }
     public void PlayStage2()
     {
-        Application.LoadLevel(playEndless2);
+        SceneManager.LoadScene(playEndless2);
     }
 
     public void PlayStage3()
     {
-        Application.LoadLevel(playEndless3);
+        SceneManager.LoadScene(playEndless3);
     }
 
     public void ViewScoreboard()
     {
-        Application.LoadLevel(ScoreBoard);
+        SceneManager.LoadScene(ScoreBoard);
     }
 
     public void GoBackToMainMenu()
     {
-        Application.LoadLevel(MainMenu);
+        SceneManager.LoadScene(MainMenu);
     }
 
     public void GoToGameMenu()
     {
-        Application.LoadLevel(gameMenu);
+        SceneManager.LoadScene(gameMenu);
     }
 
 }

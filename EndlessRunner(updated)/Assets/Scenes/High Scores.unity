@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 7796878}
   - component: {fileID: 7796877}
   m_Layer: 5
-  m_Name: FifthPlayer (11)
+  m_Name: Player16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 155247690}
   - component: {fileID: 155247689}
   m_Layer: 5
-  m_Name: SecondPlayer
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 165305014}
   - component: {fileID: 165305013}
   m_Layer: 5
-  m_Name: FifthPlayer (4)
+  m_Name: Player9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 259763880}
   - component: {fileID: 259763879}
   m_Layer: 5
-  m_Name: FifthPlayer
+  m_Name: Player5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 265912946}
   - component: {fileID: 265912945}
   m_Layer: 5
-  m_Name: FifthPlayer (2)
+  m_Name: Player7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 554030039}
   - component: {fileID: 554030038}
   m_Layer: 5
-  m_Name: FifthPlayer (1)
+  m_Name: Player6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 639743009}
   - component: {fileID: 639743008}
   m_Layer: 5
-  m_Name: FifthPlayer (10)
+  m_Name: Player15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 669069925}
   - component: {fileID: 669069924}
   m_Layer: 5
-  m_Name: FifthPlayer (5)
+  m_Name: Player10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 886292785}
   - component: {fileID: 886292784}
   m_Layer: 5
-  m_Name: FifthPlayer (12)
+  m_Name: Player17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 991911873}
   - component: {fileID: 991911872}
   m_Layer: 5
-  m_Name: FifthPlayer (3)
+  m_Name: Player8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1375,7 @@ GameObject:
   - component: {fileID: 1108974326}
   - component: {fileID: 1108974325}
   m_Layer: 5
-  m_Name: FifthPlayer (9)
+  m_Name: Player14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 1424884955}
   - component: {fileID: 1424884954}
   m_Layer: 5
-  m_Name: FourthPlayer
+  m_Name: Player4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1783,7 +1783,7 @@ GameObject:
   - component: {fileID: 1536982351}
   - component: {fileID: 1536982350}
   m_Layer: 5
-  m_Name: FirstPlayer
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1857,7 +1857,7 @@ GameObject:
   - component: {fileID: 1609365004}
   - component: {fileID: 1609365003}
   m_Layer: 5
-  m_Name: FifthPlayer (7)
+  m_Name: Player12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2136,7 +2136,7 @@ GameObject:
   - component: {fileID: 1751775538}
   - component: {fileID: 1751775537}
   m_Layer: 5
-  m_Name: FifthPlayer (8)
+  m_Name: Player13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2244,7 +2244,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0184632639749ef4a9cfcf36f61e9a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPlayerScoreText: {fileID: 1536982350}
+  playerScoreText:
+  - {fileID: 1536982350}
+  - {fileID: 155247689}
+  - {fileID: 1976576348}
+  - {fileID: 1424884954}
+  - {fileID: 259763879}
+  - {fileID: 554030039}
+  - {fileID: 265912945}
+  - {fileID: 991911872}
+  - {fileID: 165305013}
+  - {fileID: 669069924}
+  - {fileID: 1959143600}
+  - {fileID: 1609365003}
+  - {fileID: 1751775537}
+  - {fileID: 1108974325}
+  - {fileID: 639743008}
+  - {fileID: 7796877}
+  - {fileID: 886292784}
   loginURL: https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%20%22action%22:%22login%22},{%20%22login%22:%22bifrost_corhelm%22},{%20%22password%22:%22296aedae45078da5fea8a217986ec96d6234940c477bb0fcfc807ce58b9f737c%22},{%20%22app_code%22:%22r8CDypEHXwRNZ7xT%22},{%20%22session_type%22:%22session_key%22},{%20%22checksum%22:%22f3727e16f263407111ce2f46aef3c1bdab230743f59c4296bd429ba896271b22%22}]
   getScoresURL: https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%22action%22:%22run_sql%22},{%22query%22:%22SELECT%20*%20FROM%20HighScores%20ORDER%20BY%20HighScores.Score%20DESC%20%22},{%22session_key%22:%22245c493f48bd5f2f609aa201480e7a0b87df4c95f30d9c1f313d03c54185ba8b%22}]
 --- !u!1 &1959143598
@@ -2258,7 +2275,7 @@ GameObject:
   - component: {fileID: 1959143601}
   - component: {fileID: 1959143600}
   m_Layer: 5
-  m_Name: FifthPlayer (6)
+  m_Name: Player11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,7 +2349,7 @@ GameObject:
   - component: {fileID: 1976576349}
   - component: {fileID: 1976576348}
   m_Layer: 5
-  m_Name: ThirdPlayer
+  m_Name: Player3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
