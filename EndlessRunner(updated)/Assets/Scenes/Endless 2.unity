@@ -6113,7 +6113,7 @@ MonoBehaviour:
   randomSpikeThreshold: 0
   randomSlideObstacleThreshold: 0
   spikePool: {fileID: 1653046368}
-  slideObstaclePool: {fileID: 0}
+  slideObstaclePool: {fileID: 673308181}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
   powerluck: 25
