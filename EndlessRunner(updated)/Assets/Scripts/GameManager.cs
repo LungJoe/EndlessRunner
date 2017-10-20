@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
     public void Reset()
     {
+        
         theDeathScreen.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(true);
 
@@ -59,7 +60,8 @@ public class GameManager : MonoBehaviour {
         thePlayer.gameObject.SetActive(true);
 
         theScoreManager.Reset();
-        powerupReset = true;    
+        powerupReset = true;
+        theDeathScreen.setText();
     }
 
 
