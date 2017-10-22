@@ -237,6 +237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePoints: 0
   safeMode: 0
+  noDeathMode: 0
+  player: {fileID: 0}
   powerupActive: 0
 --- !u!4 &48108286
 Transform:
@@ -966,8 +968,9 @@ MonoBehaviour:
   jumpForce: 10
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
+  speedCap: 0
   jumpTime: 0.25
-  slideTime: 0
+  holdTime: 1
   grounded: 0
   WhatIsGround:
     serializedVersion: 2
@@ -975,8 +978,12 @@ MonoBehaviour:
   groundCheck: {fileID: 1255616821}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
+  scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  isAttacking: 0
+  isSliding: 0
+  invincible: 0
 --- !u!50 &384303204
 Rigidbody2D:
   serializedVersion: 4
@@ -3484,8 +3491,9 @@ MonoBehaviour:
   jumpForce: 10
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
+  speedCap: 0
   jumpTime: 0.25
-  slideTime: 1
+  holdTime: 1
   grounded: 0
   WhatIsGround:
     serializedVersion: 2
@@ -3493,8 +3501,12 @@ MonoBehaviour:
   groundCheck: {fileID: 972066577}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
+  scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  isAttacking: 0
+  isSliding: 0
+  invincible: 0
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3
@@ -3740,6 +3752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idle: {fileID: 1143465328}
   jump: {fileID: 1143465326}
+  attack: {fileID: 0}
   slide: {fileID: 1143465329}
   frame1: {fileID: 1143465326}
   frame2: {fileID: 1143465325}
@@ -4149,6 +4162,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuLevel: Main Menu
+  bank: {fileID: 0}
+  grabbed: {fileID: 0}
+  total: {fileID: 0}
+  score: {fileID: 0}
+  currentStash: 0
+  collected: 0
+  totalCoins: 0
 --- !u!1 &1340671399
 GameObject:
   m_ObjectHideFlags: 0
@@ -4667,7 +4687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6fd4e153c28914885e4af3b8359d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuLevel: Main Menu
+  mainMenuLevel: Game Menu
   pauseMenu: {fileID: 1602250423}
 --- !u!1 &1605507696
 GameObject:
@@ -5130,7 +5150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit to Main Menu
+  m_Text: 'Quit to Game Menu
 
 '
 --- !u!222 &1867113474
@@ -5382,8 +5402,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1472906474}
   highScoreText: {fileID: 736872775}
+  coinText: {fileID: 0}
   scoreCount: 0
   highScoreCount: 0
+  coinCount: 0
   pointsPerSecond: 5
   scoreIncreasing: 1
   shouldDouble: 0
@@ -5428,8 +5450,11 @@ MonoBehaviour:
   - {fileID: 220620502}
   randomCoinThreshold: 75
   spikeDifficulty: 10
+  slideDifficulty: 0
   randomSpikeThreshold: 0
+  randomSlideObstacleThreshold: 0
   spikePool: {fileID: 1653046368}
+  slideObstaclePool: {fileID: 0}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
   powerluck: 25

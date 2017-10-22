@@ -1261,7 +1261,7 @@ GameObject:
   - component: {fileID: 480482151}
   - component: {fileID: 480482150}
   m_Layer: 5
-  m_Name: QuitToMainMenuButton
+  m_Name: QuitToGameMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4447,6 +4447,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuLevel: Main Menu
+  bank: {fileID: 0}
+  grabbed: {fileID: 0}
+  total: {fileID: 0}
+  score: {fileID: 0}
+  currentStash: 0
+  collected: 0
+  totalCoins: 0
 --- !u!1 &1340671399
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6fd4e153c28914885e4af3b8359d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuLevel: Main Menu
+  mainMenuLevel: Game Menu
   pauseMenu: {fileID: 1602250423}
 --- !u!1 &1605507696
 GameObject:
@@ -5503,7 +5510,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit to Main Menu
+  m_Text: 'Quit to Game Menu
 
 '
 --- !u!222 &1867113474

@@ -2882,9 +2882,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000097752, y: -326.4851}
+  m_AnchoredPosition: {x: 0, y: 143.815}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &929000071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5254,9 +5254,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 281.08, y: -1.2669}
+  m_AnchoredPosition: {x: 281.08, y: 142.5481}
   m_SizeDelta: {x: 20, y: 287.63}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1700408580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5296,7 +5296,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 546896054}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.3057941
+  m_Size: 0.30579412
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5776,6 +5776,7 @@ MonoBehaviour:
   - {fileID: 200475991}
   loginURL: https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%20%22action%22:%22login%22},{%20%22login%22:%22bifrost_corhelm%22},{%20%22password%22:%22296aedae45078da5fea8a217986ec96d6234940c477bb0fcfc807ce58b9f737c%22},{%20%22app_code%22:%22r8CDypEHXwRNZ7xT%22},{%20%22session_type%22:%22session_key%22},{%20%22checksum%22:%22f3727e16f263407111ce2f46aef3c1bdab230743f59c4296bd429ba896271b22%22}]
   getScoresURL: https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%22action%22:%22run_sql%22},{%22query%22:%22SELECT%20*%20FROM%20HighScores%20ORDER%20BY%20HighScores.Score%20DESC%20%22},{%22session_key%22:%22245c493f48bd5f2f609aa201480e7a0b87df4c95f30d9c1f313d03c54185ba8b%22}]
+  scrollbar: {fileID: 0}
 --- !u!1 &1809882564
 GameObject:
   m_ObjectHideFlags: 0
@@ -6475,7 +6476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.2675}
+  m_AnchoredPosition: {x: 0, y: 0.0000017881}
   m_SizeDelta: {x: -101.5, y: -180.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052131463
