@@ -1,6 +1,6 @@
 {
-    "fullScreen": true,
+    "fullScreen": false,
     "resolutionIndex": 11,
-    "textureQuality": 2,
-    "musicVolume": 0.22492502629756928
+    "textureQuality": 0,
+    "musicVolume": 0.21130110323429109
 }
