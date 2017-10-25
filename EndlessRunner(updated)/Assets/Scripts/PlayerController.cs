@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
         speedMilestoneCountStore = speedMilestoneCount;
         speedIncreaseMilstoneStore = speedIncreaseMilestone;
         stoppedJumping = true;
+
 	}
 	
 	// Update is called once per frame

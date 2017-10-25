@@ -77,17 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1028,6 +1026,9 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  GestureSetting:
+    minSwipeDist: 100
+    maxSwipeTime: 10
   isAttacking: 0
   isSliding: 0
   invincible: 0
@@ -1604,7 +1605,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 554889095}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1231a6018dd7c6349812138fa7c799f0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3382,6 +3383,9 @@ MonoBehaviour:
   thePlayer: {fileID: 1143465323}
   theDeathScreen: {fileID: 1340098431}
   pauseButton: {fileID: 0}
+  GestureSetting:
+    minSwipeDist: 100
+    maxSwipeTime: 10
   powerupReset: 0
 --- !u!4 &1064363560
 Transform:
@@ -3623,6 +3627,9 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  GestureSetting:
+    minSwipeDist: 100
+    maxSwipeTime: 10
   isAttacking: 0
   isSliding: 0
   invincible: 0

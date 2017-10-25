@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour {
     public DeathMenu theDeathScreen;
 
     public GameObject pauseButton;
-
     public bool powerupReset;
 	// Use this for initialization
 	void Start () {
