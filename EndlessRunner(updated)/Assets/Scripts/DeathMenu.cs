@@ -24,7 +24,6 @@ public class DeathMenu : MonoBehaviour {
 
     private void Start()
     {
-        postHighScoreButton.GetComponentInChildren<Text>().text = "Enter Name";
         if (PlayerPrefs.HasKey("Bank"))
         {
             currentStash = PlayerPrefs.GetInt("Bank");
@@ -77,8 +76,6 @@ public class DeathMenu : MonoBehaviour {
             // makes push call to server
             WWW postScore = new WWW(postScoreURL);
             yield return postScore;
-            postHighScoreButton.GetComponentInChildren<Text>().text = "Posted!";
-            postHighScoreButton.interactable = false;
 
             if (postScore.error != null)
             {
