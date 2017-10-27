@@ -32,7 +32,7 @@ public class HighScoreManager : MonoBehaviour {
             // parses return JSON from login
             JsonData loginMsg = JsonMapper.ToObject(loginRequest.text);
             // concatenates mySQL call with session key from login request
-            getScoresURL = "https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%22action%22:%22run_sql%22},{%22query%22:%22SELECT%20*%20FROM%20HighScores%20ORDER%20BY%20HighScores.Score%20DESC%20LIMIT%200,17%22},{%22session_key%22:%22" + loginMsg[3]["session_key"].ToString() + "%22}]";
+            getScoresURL = "https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%22action%22:%22run_sql%22},{%22query%22:%22SELECT%20*%20FROM%20HighScores%20ORDER%20BY%20HighScores.Score%20DESC%20LIMIT%200,20%22},{%22session_key%22:%22" + loginMsg[3]["session_key"].ToString() + "%22}]";
 
             // makes pull json call to server
             WWW pullFromDB = new WWW(getScoresURL);
@@ -48,7 +48,7 @@ public class HighScoreManager : MonoBehaviour {
                 // parses return JSON from pull
                 JsonData pullMsg = JsonMapper.ToObject(pullFromDB.text);
                 // sets each player's name, map, and score
-                for (int i = 0; i < 17; i++)
+                for (int i = 0; i < 20; i++)
                 {
                     nameText[i].text = "           " + pullMsg[1]["message"][i][1]["PlayerName"].ToString();
                     mapText[i].text = pullMsg[1]["message"][i][3]["MapName"].ToString();
