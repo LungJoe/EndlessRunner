@@ -14,7 +14,8 @@ public class DeathMenu : MonoBehaviour {
     public ScoreManager score;
     public string loginURL = "https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%20%22action%22:%22login%22},{%20%22login%22:%22bifrost_corhelm%22},{%20%22password%22:%22296aedae45078da5fea8a217986ec96d6234940c477bb0fcfc807ce58b9f737c%22},{%20%22app_code%22:%22r8CDypEHXwRNZ7xT%22},{%20%22session_type%22:%22session_key%22},{%20%22checksum%22:%22f3727e16f263407111ce2f46aef3c1bdab230743f59c4296bd429ba896271b22%22}]";
     public string postScoreURL;
-    public GameObject postHighScoreButton;
+    public string sceneName;
+    public Button postHighScoreButton;
     public InputField highScoreName;
 
     public int currentStash;
@@ -23,7 +24,7 @@ public class DeathMenu : MonoBehaviour {
 
     private void Start()
     {
-        postHighScoreButton = GameObject.Find("PostHighScore");
+        postHighScoreButton.GetComponentInChildren<Text>().text = "Enter Name";
         if (PlayerPrefs.HasKey("Bank"))
         {
             currentStash = PlayerPrefs.GetInt("Bank");
@@ -40,6 +41,22 @@ public class DeathMenu : MonoBehaviour {
 
     private IEnumerator StartPostHighScore()
     {
+        // finds current scene name
+        Scene currentScene = SceneManager.GetActiveScene();
+        switch (currentScene.name)
+        {
+            case "Endless":
+                sceneName = "Desert";
+                break;
+            case "Endless 2":
+                sceneName = "Cave";
+                break;
+            case "Endless 3":
+                sceneName = "Level 3";
+                break;
+        }
+
+        // user input name for high score post
         string name = highScoreName.text;
 
         // makes login json call to server
@@ -55,15 +72,22 @@ public class DeathMenu : MonoBehaviour {
             // parses return JSON from login
             JsonData loginMsg = JsonMapper.ToObject(loginRequest.text);
             // concatenates mySQL push call with session key from login request
-            postScoreURL = "https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%22action%22:%22run_sql%22},{%22query%22:%22INSERT%20INTO%20HighScores(id,%20PlayerName,%20Score,%20MapName)%20VALUES%20(NULL,%27" + name + "%27," + Mathf.Round(score.scoreCount).ToString() + ",%27" + "Desert" + "%27)%22},{%22session_key%22:%22" + loginMsg[3]["session_key"].ToString() + "%22}]";
+            postScoreURL = "https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%22action%22:%22run_sql%22},{%22query%22:%22INSERT%20INTO%20HighScores(id,%20PlayerName,%20Score,%20MapName)%20VALUES%20(NULL,%27" + name + "%27," + Mathf.Round(score.scoreCount).ToString() + ",%27" + sceneName + "%27)%22},{%22session_key%22:%22" + loginMsg[3]["session_key"].ToString() + "%22}]";
 
             // makes push call to server
             WWW postScore = new WWW(postScoreURL);
             yield return postScore;
+            postHighScoreButton.GetComponentInChildren<Text>().text = "Posted!";
+            postHighScoreButton.interactable = false;
 
             if (postScore.error != null)
             {
                 Debug.Log("There was an error posting the high score: " + postScore.error);
+            }
+            else
+            {
+                postHighScoreButton.GetComponentInChildren<Text>().text = "Posted!";
+                postHighScoreButton.interactable = false;
             }
         }
     }
