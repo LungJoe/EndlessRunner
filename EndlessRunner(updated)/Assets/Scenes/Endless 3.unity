@@ -4166,6 +4166,11 @@ MonoBehaviour:
   grabbed: {fileID: 0}
   total: {fileID: 0}
   score: {fileID: 0}
+  loginURL: https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%20%22action%22:%22login%22},{%20%22login%22:%22bifrost_corhelm%22},{%20%22password%22:%22296aedae45078da5fea8a217986ec96d6234940c477bb0fcfc807ce58b9f737c%22},{%20%22app_code%22:%22r8CDypEHXwRNZ7xT%22},{%20%22session_type%22:%22session_key%22},{%20%22checksum%22:%22f3727e16f263407111ce2f46aef3c1bdab230743f59c4296bd429ba896271b22%22}]
+  postScoreURL: 
+  sceneName: 
+  postHighScoreButton: {fileID: 0}
+  highScoreName: {fileID: 0}
   currentStash: 0
   collected: 0
   totalCoins: 0
@@ -4594,6 +4599,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1508779925}
+--- !u!1 &1540731972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1540731974}
+  - component: {fileID: 1540731973}
+  m_Layer: 0
+  m_Name: AttackObstaclePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1540731973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1540731972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1319880772510850, guid: 261dc2a8113446a49857d6ac96af8276,
+    type: 2}
+  pooledAmount: 2
+--- !u!4 &1540731974
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1540731972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.779071, y: 0.9465952, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577117588
 GameObject:
   m_ObjectHideFlags: 0
@@ -5451,10 +5499,13 @@ MonoBehaviour:
   randomCoinThreshold: 75
   spikeDifficulty: 10
   slideDifficulty: 0
+  attackDifficulty: 0
   randomSpikeThreshold: 0
   randomSlideObstacleThreshold: 0
+  randomAttackObstacleThreshold: 0
   spikePool: {fileID: 1653046368}
   slideObstaclePool: {fileID: 0}
+  attackObstaclePool: {fileID: 1540731973}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
   powerluck: 25

@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17845272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.113, y: -3.287, z: 10}
+  m_LocalPosition: {x: -7.52, y: -3.49, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 165082548}
@@ -762,9 +762,6 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 0}
   deathSound: {fileID: 0}
-  GestureSetting:
-    minSwipeDist: 100
-    maxSwipeTime: 10
   isAttacking: 1
   isSliding: 0
   invincible: 0
@@ -854,7 +851,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 93118670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.14, y: 2.8, z: 0}
+  m_LocalPosition: {x: -4.96, y: 2.8, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405334993}
@@ -1199,7 +1196,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314015983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.34, y: -2.76, z: 0}
+  m_LocalPosition: {x: -4.9, y: -2.91, z: 0}
   m_LocalScale: {x: 2.5993032, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405334993}
@@ -1673,7 +1670,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 629510471}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.99, y: -3.82, z: 0}
+  m_LocalPosition: {x: -7.4, y: -4.12, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405334993}
@@ -2152,7 +2149,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1300026473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.100006, y: -0.5, z: 10}
+  m_LocalPosition: {x: -7.58, y: -0.5, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1192440884}
@@ -2700,9 +2697,6 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 0}
   deathSound: {fileID: 0}
-  GestureSetting:
-    minSwipeDist: 100
-    maxSwipeTime: 10
   isAttacking: 0
   isSliding: 1
   invincible: 0
@@ -2866,7 +2860,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1371014368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9, y: -1.03, z: 0}
+  m_LocalPosition: {x: -7.46, y: -1.03, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405334993}
@@ -3431,7 +3425,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1774061278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.82, y: 1.76, z: 0}
+  m_LocalPosition: {x: -7.7, y: 1.76, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405334993}
@@ -3526,7 +3520,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892297211}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.14, y: 2.29, z: 10}
+  m_LocalPosition: {x: -7.51, y: 2.27, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1941560089}
@@ -4074,11 +4068,8 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 0}
   deathSound: {fileID: 0}
-  GestureSetting:
-    minSwipeDist: 100
-    maxSwipeTime: 10
   isAttacking: 0
-  isSliding: 1
+  isSliding: 0
   invincible: 0
 --- !u!50 &1892297221
 Rigidbody2D:
@@ -4337,7 +4328,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1985652848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3, y: -0.01, z: 0}
+  m_LocalPosition: {x: -4.91, y: 0.04, z: 0}
   m_LocalScale: {x: 2.5993, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1405334993}

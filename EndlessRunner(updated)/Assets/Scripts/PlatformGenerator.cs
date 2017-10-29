@@ -31,10 +31,13 @@ public class PlatformGenerator : MonoBehaviour {
 
     public float spikeDifficulty;
     public float slideDifficulty;
+    public float attackDifficulty;
     public float randomSpikeThreshold;
     public float randomSlideObstacleThreshold;
+    public float randomAttackObstacleThreshold;
     public ObejctPooler spikePool;
     public ObejctPooler slideObstaclePool;
+    public ObejctPooler attackObstaclePool;
 
     public float powerupHeight;
     public ObejctPooler powerupPool;
@@ -139,10 +142,20 @@ public class PlatformGenerator : MonoBehaviour {
                 newSlideObstacle.transform.position = transform.position + slideObstaclePosition;
                 newSlideObstacle.transform.rotation = transform.rotation;
                 newSlideObstacle.SetActive(true);
-
-
             }
 
+            if (generateAttackObstacle())
+            {
+                GameObject newAttackObstacle = attackObstaclePool.GetPooledObject();
+
+                float attackObstacleXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 3f, (platformWidths[platformSelector]) / 2f - 3f);
+
+                Vector3 attackObstaclePosition = new Vector3(attackObstacleXPosition, 1f, 0f);
+
+                newAttackObstacle.transform.position = transform.position + attackObstaclePosition;
+                newAttackObstacle.transform.rotation = transform.rotation;
+                newAttackObstacle.SetActive(true);
+            }
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) , transform.position.y, transform.position.z);
 
         }
@@ -182,6 +195,20 @@ public class PlatformGenerator : MonoBehaviour {
         return false;
 
     }
+
+    private bool generateAttackObstacle()
+    {
+        int randomValueToDetermine = Random.Range(0, 100);
+        if (randomValueToDetermine <= randomAttackObstacleThreshold)
+        {
+            randomAttackObstacleThreshold = attackDifficulty * (playerModifier - 1);
+            return true;
+        }
+        randomAttackObstacleThreshold += 2;
+        return false;
+
+    }
+
 
     private bool generatePowerup()
     {
