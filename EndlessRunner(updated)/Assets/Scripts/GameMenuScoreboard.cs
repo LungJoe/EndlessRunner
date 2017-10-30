@@ -115,7 +115,7 @@ public class GameMenuScoreboard : MonoBehaviour {
             // sets each player's name, map, and score
             for (int i = 0; i < 3; i++)
             {
-                nameText3[i].text = "           " + pullMsg[1]["message"][i][1]["PlayerName"].ToString();
+                nameText3[i].text = " " + pullMsg[1]["message"][i][1]["PlayerName"].ToString();
                 scoreText3[i].text = pullMsg[1]["message"][i][2]["Score"].ToString();
             }
         }
