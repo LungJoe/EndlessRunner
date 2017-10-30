@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour {
 
     private ScoreManager theScoreManager;
     public DeathMenu theDeathScreen;
+    public Button postHighScoreButton;
 
     public GameObject pauseButton;
     public bool powerupReset;
@@ -45,6 +47,9 @@ public class GameManager : MonoBehaviour {
 
     public void Reset()
     {
+        // reset post score button
+        postHighScoreButton.GetComponentInChildren<Text>().text = "Post High Score";
+        postHighScoreButton.interactable = true;
         
         theDeathScreen.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(true);

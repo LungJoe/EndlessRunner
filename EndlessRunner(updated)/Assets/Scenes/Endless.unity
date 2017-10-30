@@ -3344,7 +3344,8 @@ MonoBehaviour:
   platformGenerator: {fileID: 2029155164}
   thePlayer: {fileID: 1143465323}
   theDeathScreen: {fileID: 1340098431}
-  pauseButton: {fileID: 0}
+  postHighScoreButton: {fileID: 1495802225}
+  pauseButton: {fileID: 1036507357}
   powerupReset: 0
 --- !u!4 &1064363560
 Transform:
@@ -4866,8 +4867,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1340098431}
-        m_MethodName: PostHighScore
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5709,9 +5710,6 @@ MonoBehaviour:
   - {fileID: 1577117590}
   - {fileID: 220620502}
   randomCoinThreshold: 75
-  spikeDifficulty: 10
-  slideDifficulty: 0
-  attackDifficulty: 0
   randomSpikeThreshold: 0
   randomSlideObstacleThreshold: 0
   randomAttackObstacleThreshold: 0
@@ -5720,7 +5718,6 @@ MonoBehaviour:
   attackObstaclePool: {fileID: 0}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
-  powerluck: 10
 --- !u!4 &2029155164
 Transform:
   m_ObjectHideFlags: 0
