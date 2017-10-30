@@ -29,9 +29,9 @@ public class PlatformGenerator : MonoBehaviour {
     private CoinGenerator theCoinGenerator;
     public float randomCoinThreshold;
 
-    public float spikeDifficulty;
-    public float slideDifficulty;
-    public float attackDifficulty;
+    private float spikeDifficulty = 10;
+    private float slideDifficulty = 10;
+    private float attackDifficulty = 10;
     public float randomSpikeThreshold;
     public float randomSlideObstacleThreshold;
     public float randomAttackObstacleThreshold;
@@ -42,7 +42,7 @@ public class PlatformGenerator : MonoBehaviour {
     public float powerupHeight;
     public ObejctPooler powerupPool;
     private float powerupThreshold;
-    public float powerluck;
+    private float powerluck = 10;
     private int currentPlatformSpaceChance;
     private int currentPlatformHeightChance;
 

@@ -20,12 +20,12 @@ public class Powerups : MonoBehaviour {
     void Awake()
     {
         int powerupSelector = Random.Range(0, 100);
-        if(powerupSelector > 83)
+        if(powerupSelector > 93)
         {
             safeMode = true;
             sprite = 1;
         }
-        else if(powerupSelector > 53)
+        else if(powerupSelector > 73)
         {
             invincible = true;
             sprite = 2;
@@ -43,7 +43,7 @@ public class Powerups : MonoBehaviour {
     {
         if (other.name == "Player")
         {
-            thePowerupManager.ActivatePowerup(doublePoints, safeMode, invincible, 180f);
+            thePowerupManager.ActivatePowerup(doublePoints, safeMode, invincible, 3f);
         }
         gameObject.SetActive(false);
     }

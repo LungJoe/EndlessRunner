@@ -31,7 +31,7 @@ public class PowerupManager : MonoBehaviour {
 	void Update () {
         if (powerupActive == true)
         {
-            powerupLengthCounter--;
+            powerupLengthCounter -= Time.deltaTime;
 
             if (theGameManager.powerupReset)
             {
