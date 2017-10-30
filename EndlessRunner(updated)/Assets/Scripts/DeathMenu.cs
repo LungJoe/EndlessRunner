@@ -51,7 +51,7 @@ public class DeathMenu : MonoBehaviour {
                 sceneName = "Cave";
                 break;
             case "Endless 3":
-                sceneName = "Level 3";
+                sceneName = "UTSA";
                 break;
         }
 
