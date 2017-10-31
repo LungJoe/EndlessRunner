@@ -1,14 +1,16 @@
 fileFormatVersion: 2
 guid: 22ff96d14fd94d94fba0020a33b82047
-timeCreated: 1508021143
+timeCreated: 1509392515
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spritesheet_items_0
+    21300000: coinGold
     21300002: powerup1
     21300004: powerup2
     21300006: powerup3
     21300008: powerup4
+    21300010: coinBronze
+    21300012: coinsilver
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -80,7 +82,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet_items_0
+      name: coinGold
       rect:
         serializedVersion: 2
         x: 672
@@ -130,7 +132,7 @@ TextureImporter:
         width: 70
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,7 +146,35 @@ TextureImporter:
         width: 70
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: coinBronze
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 414
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: coinsilver
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 159
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
