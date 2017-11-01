@@ -143,8 +143,7 @@ public class PlatformGenerator : MonoBehaviour {
                 newSlideObstacle.transform.rotation = transform.rotation;
                 newSlideObstacle.SetActive(true);
             }
-
-            if (generateAttackObstacle())
+            else if (generateAttackObstacle())
             {
                 GameObject newAttackObstacle = attackObstaclePool.GetPooledObject();
 

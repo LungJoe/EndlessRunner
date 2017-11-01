@@ -2014,6 +2014,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &622483653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 622483655}
+  - component: {fileID: 622483654}
+  m_Layer: 0
+  m_Name: SlideObstaclePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &622483654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622483653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1351397352531284, guid: f49b1500ccfda364b8cf459e008d61cd,
+    type: 2}
+  pooledAmount: 4
+--- !u!4 &622483655
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622483653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.307963, y: 0.6215948, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &631219385
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,7 +4711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 1319880772510850, guid: 261dc2a8113446a49857d6ac96af8276,
     type: 2}
-  pooledAmount: 2
+  pooledAmount: 4
 --- !u!4 &1540731974
 Transform:
   m_ObjectHideFlags: 0
@@ -6056,8 +6099,8 @@ MonoBehaviour:
   randomSpikeThreshold: 0
   randomSlideObstacleThreshold: 0
   randomAttackObstacleThreshold: 0
-  spikePool: {fileID: 1653046368}
-  slideObstaclePool: {fileID: 0}
+  spikePool: {fileID: 0}
+  slideObstaclePool: {fileID: 622483654}
   attackObstaclePool: {fileID: 1540731973}
   powerupHeight: 4
   powerupPool: {fileID: 528100581}
