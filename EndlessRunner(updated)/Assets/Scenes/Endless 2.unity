@@ -1071,6 +1071,7 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 10
   attackJumpForce: 0
+  fallForce: 0
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   speedCap: 0
@@ -4157,6 +4158,7 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 10
   attackJumpForce: 15
+  fallForce: -15
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   speedCap: 14
