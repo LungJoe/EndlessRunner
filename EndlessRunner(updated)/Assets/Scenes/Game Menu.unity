@@ -77,15 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -789,8 +791,6 @@ MonoBehaviour:
   attack: {fileID: 17845277}
   slide: {fileID: 17845274}
   frame1: {fileID: 17845278}
-  frame2: {fileID: 17845277}
-  frame3: {fileID: 17845276}
 --- !u!95 &17845280
 Animator:
   serializedVersion: 3
@@ -2698,7 +2698,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3754,8 +3754,6 @@ MonoBehaviour:
   attack: {fileID: 1300026479}
   slide: {fileID: 1300026475}
   frame1: {fileID: 1300026479}
-  frame2: {fileID: 1300026478}
-  frame3: {fileID: 1300026477}
 --- !u!95 &1300026481
 Animator:
   serializedVersion: 3
@@ -5458,8 +5456,6 @@ MonoBehaviour:
   attack: {fileID: 1892297216}
   slide: {fileID: 1892297213}
   frame1: {fileID: 1892297217}
-  frame2: {fileID: 1892297216}
-  frame3: {fileID: 1892297215}
 --- !u!95 &1892297219
 Animator:
   serializedVersion: 3
