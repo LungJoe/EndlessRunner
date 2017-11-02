@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public float attackJumpForce;
+    public float fallForce;
     private float moveSpeedStore;
     private float speedMilestoneCountStore;
     private float speedIncreaseMilstoneStore;
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Slide Functionality
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) )
         {
             startTime = Time.time;
             holdTime = 1f;
@@ -162,12 +163,28 @@ public class PlayerController : MonoBehaviour
             {
                 isSliding = true;
             }
-
         }
         else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
         {
             isSliding = false;
             startTime = 0f;
+        }
+        if( (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded)
+        {
+            if (startTime + holdTime <= Time.time)
+            {
+                isSliding = false;
+            }
+            else
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, fallForce);
+                isSliding = true;
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) && !grounded)
+        {
+            
         }
 
         if (grounded)
@@ -196,7 +213,6 @@ public class PlayerController : MonoBehaviour
             speedMilestoneCount = speedMilestoneCountStore;
             speedIncreaseMilestone = speedIncreaseMilstoneStore;
             deathSound.Play();
-
         }
         if (other.gameObject.tag == "killbox" && invincible)
         {
