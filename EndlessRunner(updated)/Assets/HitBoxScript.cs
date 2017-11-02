@@ -10,8 +10,6 @@ public class HitBoxScript : MonoBehaviour {
 	public PolygonCollider2D attack;
     public PolygonCollider2D slide;
     public PolygonCollider2D frame1;
-    public PolygonCollider2D frame2;
-    public PolygonCollider2D frame3;
 
     private Rigidbody2D myRigidbody;
     // Used for organization
@@ -28,8 +26,6 @@ public class HitBoxScript : MonoBehaviour {
 		attack,
         slide, 
         frame1Box,
-        frame2Box,
-        frame3Box,
         clear // special case to remove all boxes
     }
 
@@ -37,7 +33,7 @@ public class HitBoxScript : MonoBehaviour {
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         // Set up an array so our script can more easily set up the hit boxes
-        colliders = new PolygonCollider2D[] { idle, jump, attack, slide, frame1, frame2, frame3 };
+        colliders = new PolygonCollider2D[] { idle, jump, attack, slide, frame1};
 
         // Create a polygon collider
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
@@ -47,12 +43,6 @@ public class HitBoxScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Collider hit something!");
-        if (col.gameObject.tag == "killbox")
-        {
-            
-
-        }
 
     }
 
