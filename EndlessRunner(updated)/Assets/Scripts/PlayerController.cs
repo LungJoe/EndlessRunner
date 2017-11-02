@@ -98,10 +98,11 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.A) && !grounded && canDoubleJump)
+        if (Input.GetKeyDown(KeyCode.A) && canDoubleJump)
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
             isAttacking = true;
+            canDoubleJump = false;
         }
 
 
@@ -122,30 +123,19 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
+        
         //Attack Functionality
-        if (Input.GetKeyDown(KeyCode.A) && grounded)
-        {
-            startTime = Time.time;
-            holdTime = 0.2f;
-        }
         if (Input.GetKey(KeyCode.A) && grounded)
         {
-            if (startTime + holdTime <= Time.time)
-            {
-                isAttacking = false;
-            }
-            else
-            {
-                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
-                isAttacking = true;
-            }
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+            isAttacking = true;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
             isAttacking = false;
-            startTime = 0f;
+            canDoubleJump = false;
         }
+
 
         //Slide Functionality
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) )
