@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public float moveSpeed;
     public float jumpForce;
+    public float attackJumpForce;
     private float moveSpeedStore;
     private float speedMilestoneCountStore;
     private float speedIncreaseMilstoneStore;
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 
     private bool stoppedJumping;
     private bool canDoubleJump;
-    
+
     public bool grounded;
 
     public LayerMask WhatIsGround;//selection of the layers available
@@ -44,10 +46,11 @@ public class PlayerController : MonoBehaviour {
     public bool invincible = false;
 
     //private Collider2D myCollider
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         myRigidbody = GetComponent<Rigidbody2D>();
-       // myCollider = GetComponent<Collider2D>();
+        // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
         speedMilestoneCount = speedIncreaseMilestone;
@@ -56,10 +59,11 @@ public class PlayerController : MonoBehaviour {
         speedIncreaseMilstoneStore = speedIncreaseMilestone;
         stoppedJumping = true;
         speedCap = 200;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //grounded = Physics2D.IsTouchingLayers(myCollider, WhatIsGround); //if collider touches another, grounded = true
 
@@ -77,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))  && !isSliding && !isAttacking)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !isSliding && !isAttacking)
         {
             if (grounded)
             {
@@ -85,19 +89,22 @@ public class PlayerController : MonoBehaviour {
                 stoppedJumping = false;
                 jumpSound.Play();
             }
-
             if (!grounded && canDoubleJump)
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
                 jumpTimeCounter = jumpTime;//add this if you want a holded second jump
-
                 stoppedJumping = false;
                 canDoubleJump = false;
-
             }
         }
+        if (Input.GetKeyDown(KeyCode.A) && !grounded && canDoubleJump)
+        {
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+            isAttacking = true;
+        }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping )
+
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping)
         {
             if (jumpTimeCounter > 0)
             {
@@ -106,55 +113,60 @@ public class PlayerController : MonoBehaviour {
                 jumpSound.Play();
             }
         }
-            
+
         if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             jumpTimeCounter = 0;
             stoppedJumping = true;
+
         }
 
 
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
+        //Attack Functionality
+        if (Input.GetKeyDown(KeyCode.A) && grounded)
         {
             startTime = Time.time;
+            holdTime = 0.2f;
         }
-        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) )
-        {
-            if (startTime + holdTime <= Time.time)
-            {
-                    isSliding = false;
-            }
-            else// if (startTime + holdTime >= Time.time && stoppedJumping)
-            {
-                    isSliding = true;
-            }
-            
-        }
-        else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
-        {
-            isSliding = false;
-            startTime = 0f;
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.A) &&  grounded)
-        {
-            startTime = Time.time;
-        }
-        if (Input.GetKey(KeyCode.A) )
+        if (Input.GetKey(KeyCode.A) && grounded)
         {
             if (startTime + holdTime <= Time.time)
             {
                 isAttacking = false;
             }
-            else// if(startTime + holdTime >= Time.time && stoppedJumping)
+            else
             {
-                isAttacking  = true;
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+                isAttacking = true;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A))
         {
             isAttacking = false;
+            startTime = 0f;
+        }
+
+        //Slide Functionality
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
+        {
+            startTime = Time.time;
+            holdTime = 1f;
+        }
+        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)))
+        {
+            if (startTime + holdTime <= Time.time)
+            {
+                isSliding = false;
+            }
+            else
+            {
+                isSliding = true;
+            }
+
+        }
+        else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
+        {
+            isSliding = false;
             startTime = 0f;
         }
 
@@ -168,7 +180,7 @@ public class PlayerController : MonoBehaviour {
         myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
         myAnimator.SetBool("Attacking", isAttacking);
-	}
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -186,15 +198,14 @@ public class PlayerController : MonoBehaviour {
             deathSound.Play();
 
         }
-        if(other.gameObject.tag == "killbox" && invincible)
+        if (other.gameObject.tag == "killbox" && invincible)
         {
             other.gameObject.SetActive(false);
             scorer.AddScore(200);
         }
-        if(other.gameObject.tag == "attackBox" && isAttacking )
+        if (other.gameObject.tag == "attackBox" && isAttacking)
         {
             other.gameObject.SetActive(false);
         }
     }
-
 }
