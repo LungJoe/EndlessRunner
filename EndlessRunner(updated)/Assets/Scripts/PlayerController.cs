@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour {
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)  && !isSliding && !isAttacking)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))  && !isSliding && !isAttacking)
         {
             if (grounded)
             {
@@ -113,45 +113,45 @@ public class PlayerController : MonoBehaviour {
             stoppedJumping = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1))
+
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
         {
             startTime = Time.time;
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1))
+        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) )
         {
             if (startTime + holdTime <= Time.time)
             {
                     isSliding = false;
             }
-            else
+            else// if (startTime + holdTime >= Time.time && stoppedJumping)
             {
                     isSliding = true;
             }
             
         }
-        else if (Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1))
+        else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
         {
             isSliding = false;
             startTime = 0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+
+        if (Input.GetKeyDown(KeyCode.A) &&  grounded)
         {
             startTime = Time.time;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) )
         {
             if (startTime + holdTime <= Time.time)
             {
                 isAttacking = false;
             }
-            else
+            else// if(startTime + holdTime >= Time.time && stoppedJumping)
             {
                 isAttacking  = true;
             }
-
         }
-
         else if (Input.GetKeyUp(KeyCode.A))
         {
             isAttacking = false;
