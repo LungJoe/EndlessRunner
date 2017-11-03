@@ -569,9 +569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1627120095876554, guid: 68207ef7232291b4194ca6d0a400a5f1,
+  pooledObject: {fileID: 1310916743909678, guid: 8f2aa028aa97533458901b21608deb10,
     type: 2}
-  pooledAmount: 2
+  pooledAmount: 1
 --- !u!1 &237464188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,9 +4005,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1627120095876554, guid: 68207ef7232291b4194ca6d0a400a5f1,
+  pooledObject: {fileID: 1310916743909678, guid: 8f2aa028aa97533458901b21608deb10,
     type: 2}
-  pooledAmount: 2
+  pooledAmount: 1
 --- !u!4 &1198580149
 Transform:
   m_ObjectHideFlags: 0
@@ -4313,9 +4313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1627120095876554, guid: 68207ef7232291b4194ca6d0a400a5f1,
+  pooledObject: {fileID: 1310916743909678, guid: 8f2aa028aa97533458901b21608deb10,
     type: 2}
-  pooledAmount: 2
+  pooledAmount: 1
 --- !u!4 &1420842874 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4745783303887414, guid: 898c8a30aa0493348889b74636028859,
@@ -4737,9 +4737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2008ffff137b814a954d3bab9145a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1627120095876554, guid: 68207ef7232291b4194ca6d0a400a5f1,
+  pooledObject: {fileID: 1310916743909678, guid: 8f2aa028aa97533458901b21608deb10,
     type: 2}
-  pooledAmount: 2
+  pooledAmount: 1
 --- !u!1 &1602250423
 GameObject:
   m_ObjectHideFlags: 0
@@ -6059,7 +6059,7 @@ MonoBehaviour:
     type: 2}
   generationPoint: {fileID: 812833124}
   thePlayer: {fileID: 1143465323}
-  distanceBetween: 3
+  distanceBetween: 4
   distanceBetweenMin: 4
   distanceBetweenMax: 9
   theObjectPools:
@@ -6069,8 +6069,8 @@ MonoBehaviour:
   - {fileID: 220620502}
   randomCoinThreshold: 75
   randomSpikeThreshold: 0
-  randomSlideObstacleThreshold: 0
-  randomAttackObstacleThreshold: 0
+  randomSlideObstacleThreshold: 4
+  randomAttackObstacleThreshold: 4
   spikePool: {fileID: 0}
   slideObstaclePool: {fileID: 622483654}
   attackObstaclePool: {fileID: 1540731973}
@@ -6083,7 +6083,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029155162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.18, y: -3, z: 0}
+  m_LocalPosition: {x: 12.18, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2083788270}

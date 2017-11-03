@@ -98,13 +98,14 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.A) && canDoubleJump)
+        
+        if (Input.GetKeyDown(KeyCode.A) && canDoubleJump && !grounded)
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
             isAttacking = true;
             canDoubleJump = false;
         }
-
+        
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping)
         {
@@ -125,6 +126,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Attack Functionality
+       
         if (Input.GetKey(KeyCode.A) && grounded)
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
@@ -134,8 +136,36 @@ public class PlayerController : MonoBehaviour
         {
             isAttacking = false;
             canDoubleJump = false;
+            startTime = 0f;
         }
+        
 
+        //Alternate Attack (not as good as above but wont keep attacking if button held
+        /*
+        if (Input.GetKeyDown(KeyCode.A) )
+        {
+            startTime = Time.time;
+            holdTime = .2f;
+        }
+        if (Input.GetKey(KeyCode.A) && grounded || Input.GetKey(KeyCode.A) && !grounded && canDoubleJump)
+        {
+            if (startTime + holdTime <= Time.time)
+            {
+                isAttacking = false;
+            }
+            else
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+                isAttacking = true;
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            isAttacking = false;
+            startTime = 0f;
+            canDoubleJump = false;
+        }
+        */
 
         //Slide Functionality
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
@@ -177,6 +207,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
+
         if (grounded)
         {
             jumpTimeCounter = jumpTime;
@@ -192,7 +223,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         //tagging an object -> easy way to detect what an object is(under object name in spector)
-        if (other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4)) || other.gameObject.tag == "attackBox" && !isAttacking)
+        if ((other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4))) || (other.gameObject.tag == "attackBox" && !isAttacking))
         {
            
             theGameManager.RestartGame();
