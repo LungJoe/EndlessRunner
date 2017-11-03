@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
         thePlayer.transform.position = playerStartPoint;
         platformGenerator.position = platformStartPoint;
         thePlayer.gameObject.SetActive(true);
-
+        thePlayer.ResetValues();
         theScoreManager.Reset();
         powerupReset = true;
         theDeathScreen.setText();

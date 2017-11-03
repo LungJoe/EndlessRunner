@@ -9,15 +9,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float attackJumpForce;
     public float fallForce;
-    private float moveSpeedStore;
-    private float speedMilestoneCountStore;
-    private float speedIncreaseMilstoneStore;
+    protected float moveSpeedStore;
+    protected float speedMilestoneCountStore;
+    protected float speedIncreaseMilstoneStore;
 
 
     public float speedMultiplier;
     public float speedIncreaseMilestone;
     public float speedCap;
-    private float speedMilestoneCount;
+    protected float speedMilestoneCount;
 
     public float jumpTime;
     private float jumpTimeCounter;
@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
 
-    private bool stoppedJumping;
-    private bool canDoubleJump;
+    protected bool stoppedJumping;
+    protected bool canDoubleJump;
 
     public bool grounded;
 
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        
+
         //Attack Functionality
         if (Input.GetKey(KeyCode.A) && grounded)
         {
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Slide Functionality
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) )
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
         {
             startTime = Time.time;
             holdTime = 1f;
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
             isSliding = false;
             startTime = 0f;
         }
-        if( (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded)
+        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded)
         {
             if (startTime + holdTime <= Time.time)
             {
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) && !grounded)
         {
-            
+
         }
 
         if (grounded)
@@ -194,15 +194,9 @@ public class PlayerController : MonoBehaviour
         //tagging an object -> easy way to detect what an object is(under object name in spector)
         if (other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4)) || other.gameObject.tag == "attackBox" && !isAttacking)
         {
+           
             theGameManager.RestartGame();
-            isSliding = false;
-            isAttacking = false;
-            stoppedJumping = false;
-            canDoubleJump = false;
-            moveSpeed = moveSpeedStore;
-            speedMilestoneCount = speedMilestoneCountStore;
-            speedIncreaseMilestone = speedIncreaseMilstoneStore;
-            deathSound.Play();
+            ResetValues();
         }
         if (other.gameObject.tag == "killbox" && invincible)
         {
@@ -213,5 +207,19 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
         }
+    }
+
+
+    public void ResetValues()
+    {
+        
+        isSliding = false;
+        isAttacking = false;
+        stoppedJumping = false;
+        canDoubleJump = false;
+        moveSpeed = moveSpeedStore;
+        speedMilestoneCount = speedMilestoneCountStore;
+        speedIncreaseMilestone = speedIncreaseMilstoneStore;
+        deathSound.Play();
     }
 }
