@@ -24,10 +24,7 @@ public class DeathMenu : MonoBehaviour {
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Bank"))
-        {
-            currentStash = PlayerPrefs.GetInt("Bank");
-        }
+        currentStash = PlayerPrefs.GetInt("Bank", 0);
         collected = score.coinCount;
         totalCoins = currentStash + collected;
         PlayerPrefs.SetInt("Bank", totalCoins);
@@ -100,7 +97,7 @@ public class DeathMenu : MonoBehaviour {
 
     public void setText()
     {
-        currentStash = PlayerPrefs.GetInt("Bank");
+        currentStash = PlayerPrefs.GetInt("Bank", 0);
         Debug.Log(collected);
         totalCoins = currentStash + collected;
         collected = 0;

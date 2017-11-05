@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameMenu : MonoBehaviour
 {
@@ -12,6 +13,30 @@ public class GameMenu : MonoBehaviour
     public string ScoreBoard;
     public string gameMenu;
 
+    public Button[] levels;
+    public Text bankText;
+    private void Start()
+    {
+        for(int i = 1; i < levels.Length; i++)
+        {
+            levels[i].interactable = false;
+        }
+
+        bankText.text = "Coins - " + PlayerPrefs.GetInt("Bank", 0);
+    }
+
+    private void Update()
+    {
+        bankText.text = "Coins - " + PlayerPrefs.GetInt("Bank", 0);
+        if(PlayerPrefs.GetInt("Bank") >= 1000 && levels[1].interactable == false)
+        {
+            levels[1].interactable = true;
+        }
+        if(PlayerPrefs.GetInt("Bank") >= 1500 && levels[2].interactable == false)
+        {
+            levels[2].interactable = true;
+        }
+    }
     public void PlayStage1()
     {
         SceneManager.LoadScene(playEndless);
