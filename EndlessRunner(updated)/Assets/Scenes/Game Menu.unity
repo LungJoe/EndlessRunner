@@ -1416,6 +1416,10 @@ MonoBehaviour:
   - {fileID: 351953673}
   - {fileID: 2106646898}
   - {fileID: 1631116851}
+  skins:
+  - {fileID: 930229434}
+  - {fileID: 1172990292}
+  - {fileID: 1758869467}
   bankText: {fileID: 1045505647}
 --- !u!1 &304106691
 GameObject:
