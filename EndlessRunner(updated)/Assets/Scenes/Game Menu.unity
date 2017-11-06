@@ -1665,6 +1665,7 @@ GameObject:
   - component: {fileID: 351953675}
   - component: {fileID: 351953674}
   - component: {fileID: 351953673}
+  - component: {fileID: 351953676}
   m_Layer: 5
   m_Name: Stage 1 Button
   m_TagString: Untagged
@@ -1777,6 +1778,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 351953671}
+--- !u!114 &351953676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351953671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 351953674}
+  unlocked: {fileID: 21300000, guid: 26343f09985344248ba9d92e997ae516, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &405539784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,6 +2662,7 @@ GameObject:
   - component: {fileID: 930229436}
   - component: {fileID: 930229435}
   - component: {fileID: 930229434}
+  - component: {fileID: 930229437}
   m_Layer: 5
   m_Name: Skin1 Button
   m_TagString: Untagged
@@ -2746,6 +2762,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 930229432}
+--- !u!114 &930229437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930229432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 930229435}
+  unlocked: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  locked: {fileID: 0}
 --- !u!1 &1014122058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,6 +2967,7 @@ GameObject:
   - component: {fileID: 1172990294}
   - component: {fileID: 1172990293}
   - component: {fileID: 1172990292}
+  - component: {fileID: 1172990295}
   m_Layer: 5
   m_Name: Skin2 Button
   m_TagString: Untagged
@@ -3036,6 +3067,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1172990290}
+--- !u!114 &1172990295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172990290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1172990293}
+  unlocked: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  locked: {fileID: 0}
 --- !u!1 &1192440883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,6 +4469,7 @@ GameObject:
   - component: {fileID: 1631116853}
   - component: {fileID: 1631116852}
   - component: {fileID: 1631116851}
+  - component: {fileID: 1631116854}
   m_Layer: 5
   m_Name: Stage 3 Button
   m_TagString: Untagged
@@ -4536,6 +4582,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1631116849}
+--- !u!114 &1631116854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631116849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1631116852}
+  unlocked: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  locked: {fileID: 0}
 --- !u!1 &1733292171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,6 +4642,7 @@ GameObject:
   - component: {fileID: 1758869469}
   - component: {fileID: 1758869468}
   - component: {fileID: 1758869467}
+  - component: {fileID: 1758869470}
   m_Layer: 5
   m_Name: Skin3 Button
   m_TagString: Untagged
@@ -4681,6 +4742,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1758869465}
+--- !u!114 &1758869470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1758869465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1758869468}
+  unlocked: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  locked: {fileID: 0}
 --- !u!1 &1774061278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,6 +6361,7 @@ GameObject:
   - component: {fileID: 2106646900}
   - component: {fileID: 2106646899}
   - component: {fileID: 2106646898}
+  - component: {fileID: 2106646901}
   m_Layer: 5
   m_Name: Stage 2 Button
   m_TagString: Untagged
@@ -6398,6 +6474,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106646896}
+--- !u!114 &2106646901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106646896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2106646899}
+  unlocked: {fileID: 21300000, guid: 54898a0c8e2761e4e8beb17c2cf1c219, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &2136526895
 GameObject:
   m_ObjectHideFlags: 0

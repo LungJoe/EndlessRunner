@@ -25,7 +25,6 @@ public class GameMenu : MonoBehaviour
         for(int i = 1; i < skins.Length; i++)
         {
             skins[i].interactable = false;
-            skins[i].gameObject.SetActive(false);
         }
         bankText.text = "Coins - " + PlayerPrefs.GetInt("Bank", 0);
     }
@@ -44,13 +43,11 @@ public class GameMenu : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Bank") >= 500 && skins[1].interactable == false)
         {
-            skins[1].interactable = true;
-            skins[1].gameObject.SetActive(true);
+            skins[1].interactable = true; 
         }
         if (PlayerPrefs.GetInt("Bank") >= 1250 && skins[2].interactable == false)
         {
             skins[2].interactable = true;
-            skins[2].gameObject.SetActive(true);
         }
     }
     public void PlayStage1()
