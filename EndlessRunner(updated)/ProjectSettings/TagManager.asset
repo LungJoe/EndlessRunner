@@ -6,6 +6,7 @@ TagManager:
   tags:
   - killbox
   - attackBox
+  - Music
   layers:
   - Default
   - TransparentFX

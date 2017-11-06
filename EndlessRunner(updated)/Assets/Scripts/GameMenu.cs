@@ -55,15 +55,18 @@ public class GameMenu : MonoBehaviour
     }
     public void PlayStage1()
     {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicSingleton>().StopMusic();
         SceneManager.LoadScene(playEndless);
     }
     public void PlayStage2()
     {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicSingleton>().StopMusic();
         SceneManager.LoadScene(playEndless2);
     }
 
     public void PlayStage3()
     {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicSingleton>().StopMusic();
         SceneManager.LoadScene(playEndless3);
     }
 
