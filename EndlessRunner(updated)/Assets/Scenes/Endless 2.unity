@@ -2287,7 +2287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91aa69d19928ac84f95db90b277ef821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuLevel: Main Menu
+  mainMenuLevel: Game Menu
   bank: {fileID: 0}
   grabbed: {fileID: 0}
   total: {fileID: 0}
@@ -3857,7 +3857,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit to Main Menu
+  m_Text: 'Quit to Game Menu
 
 '
 --- !u!222 &1088240607
