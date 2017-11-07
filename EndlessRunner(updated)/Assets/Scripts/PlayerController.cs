@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public float moveSpeed;
     public float jumpForce;
-    private float moveSpeedStore;
-    private float speedMilestoneCountStore;
-    private float speedIncreaseMilstoneStore;
+    public float attackJumpForce;
+    public float fallForce;
+    protected float moveSpeedStore;
+    protected float speedMilestoneCountStore;
+    protected float speedIncreaseMilstoneStore;
 
 
     public float speedMultiplier;
     public float speedIncreaseMilestone;
     public float speedCap;
-    private float speedMilestoneCount;
+    protected float speedMilestoneCount;
 
     public float jumpTime;
     private float jumpTimeCounter;
@@ -24,9 +27,9 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D myRigidbody;
 
-    private bool stoppedJumping;
-    private bool canDoubleJump;
-    
+    protected bool stoppedJumping;
+    protected bool canDoubleJump;
+
     public bool grounded;
 
     public LayerMask WhatIsGround;//selection of the layers available
@@ -44,10 +47,11 @@ public class PlayerController : MonoBehaviour {
     public bool invincible = false;
 
     //private Collider2D myCollider
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         myRigidbody = GetComponent<Rigidbody2D>();
-       // myCollider = GetComponent<Collider2D>();
+        // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
         jumpTimeCounter = jumpTime;
         speedMilestoneCount = speedIncreaseMilestone;
@@ -55,10 +59,12 @@ public class PlayerController : MonoBehaviour {
         speedMilestoneCountStore = speedMilestoneCount;
         speedIncreaseMilstoneStore = speedIncreaseMilestone;
         stoppedJumping = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        speedCap = 200;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //grounded = Physics2D.IsTouchingLayers(myCollider, WhatIsGround); //if collider touches another, grounded = true
 
@@ -76,7 +82,7 @@ public class PlayerController : MonoBehaviour {
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)  && !isSliding && !isAttacking)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !isSliding && !isAttacking)
         {
             if (grounded)
             {
@@ -84,19 +90,24 @@ public class PlayerController : MonoBehaviour {
                 stoppedJumping = false;
                 jumpSound.Play();
             }
-
             if (!grounded && canDoubleJump)
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
                 jumpTimeCounter = jumpTime;//add this if you want a holded second jump
-
                 stoppedJumping = false;
                 canDoubleJump = false;
-
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.A) && canDoubleJump && !grounded)
+        {
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+            isAttacking = true;
+            canDoubleJump = false;
+        }
+        
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping )
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping)
         {
             if (jumpTimeCounter > 0)
             {
@@ -105,40 +116,38 @@ public class PlayerController : MonoBehaviour {
                 jumpSound.Play();
             }
         }
-            
+
         if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             jumpTimeCounter = 0;
             stoppedJumping = true;
+
         }
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1))
+
+        //Attack Functionality
+       
+        if (Input.GetKey(KeyCode.A) && grounded)
         {
-            startTime = Time.time;
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+            isAttacking = true;
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1))
+        if (Input.GetKeyUp(KeyCode.A))
         {
-            if (startTime + holdTime <= Time.time)
-            {
-                    isSliding = false;
-            }
-            else
-            {
-                    isSliding = true;
-            }
-            
-        }
-        else if (Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1))
-        {
-            isSliding = false;
+            isAttacking = false;
+            canDoubleJump = false;
             startTime = 0f;
         }
+        
 
-        if (Input.GetKeyDown(KeyCode.A))
+        //Alternate Attack (not as good as above but wont keep attacking if button held
+        /*
+        if (Input.GetKeyDown(KeyCode.A) )
         {
             startTime = Time.time;
+            holdTime = .2f;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && grounded || Input.GetKey(KeyCode.A) && !grounded && canDoubleJump)
         {
             if (startTime + holdTime <= Time.time)
             {
@@ -146,16 +155,58 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                isAttacking  = true;
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+                isAttacking = true;
             }
-
         }
-
         else if (Input.GetKeyUp(KeyCode.A))
         {
             isAttacking = false;
             startTime = 0f;
+            canDoubleJump = false;
         }
+        */
+
+        //Slide Functionality
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
+        {
+            startTime = Time.time;
+            holdTime = 1f;
+        }
+        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)))
+        {
+            if (startTime + holdTime <= Time.time)
+            {
+                isSliding = false;
+            }
+            else
+            {
+                isSliding = true;
+            }
+        }
+        else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
+        {
+            isSliding = false;
+            startTime = 0f;
+        }
+        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded)
+        {
+            if (startTime + holdTime <= Time.time)
+            {
+                isSliding = false;
+            }
+            else
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, fallForce);
+                isSliding = true;
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) && !grounded)
+        {
+
+        }
+
 
         if (grounded)
         {
@@ -167,30 +218,39 @@ public class PlayerController : MonoBehaviour {
         myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
         myAnimator.SetBool("Attacking", isAttacking);
-	}
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         //tagging an object -> easy way to detect what an object is(under object name in spector)
-        if (other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4)))
+        if ((other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4))) || (other.gameObject.tag == "attackBox" && !isAttacking))
         {
+           
             theGameManager.RestartGame();
-            isSliding = false;
-            isAttacking = false;
-            stoppedJumping = false;
-            canDoubleJump = false;
-            moveSpeed = moveSpeedStore;
-            speedMilestoneCount = speedMilestoneCountStore;
-            speedIncreaseMilestone = speedIncreaseMilstoneStore;
-            deathSound.Play();
-
+            ResetValues();
         }
-        if(other.gameObject.tag == "killbox" && invincible)
+        if (other.gameObject.tag == "killbox" && invincible)
         {
             other.gameObject.SetActive(false);
             scorer.AddScore(200);
         }
-
+        if (other.gameObject.tag == "attackBox" && isAttacking)
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 
+
+    public void ResetValues()
+    {
+        
+        isSliding = false;
+        isAttacking = false;
+        stoppedJumping = false;
+        canDoubleJump = false;
+        moveSpeed = moveSpeedStore;
+        speedMilestoneCount = speedMilestoneCountStore;
+        speedIncreaseMilestone = speedIncreaseMilstoneStore;
+        deathSound.Play();
+    }
 }

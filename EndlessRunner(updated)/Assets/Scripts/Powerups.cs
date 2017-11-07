@@ -8,7 +8,7 @@ public class Powerups : MonoBehaviour {
     public bool safeMode;
     public bool invincible;
     public float powerupLength;
-
+    private int sprite;
     private PowerupManager thePowerupManager;
 
     public Sprite[] powerupSprites;
@@ -19,18 +19,23 @@ public class Powerups : MonoBehaviour {
 
     void Awake()
     {
-        int powerupSelector = Random.Range(0, 3);
-        switch (powerupSelector)
+        int powerupSelector = Random.Range(0, 100);
+        if(powerupSelector > 93)
         {
-            case 0: doublePoints = true;
-                break;
-            case 1: safeMode = true;
-                break;
-            case 2: invincible = true;
-                break;
+            safeMode = true;
+            sprite = 1;
         }
-
-        GetComponent<SpriteRenderer>().sprite = powerupSprites[powerupSelector];
+        else if(powerupSelector > 73)
+        {
+            invincible = true;
+            sprite = 2;
+        }
+        else
+        {
+            doublePoints = true;
+            sprite = 0;
+        }
+        GetComponent<SpriteRenderer>().sprite = powerupSprites[sprite];
 
     }
 
@@ -38,7 +43,7 @@ public class Powerups : MonoBehaviour {
     {
         if (other.name == "Player")
         {
-            thePowerupManager.ActivatePowerup(doublePoints, safeMode, invincible, 180f);
+            thePowerupManager.ActivatePowerup(doublePoints, safeMode, invincible, 3f);
         }
         gameObject.SetActive(false);
     }

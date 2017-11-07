@@ -29,17 +29,20 @@ public class PlatformGenerator : MonoBehaviour {
     private CoinGenerator theCoinGenerator;
     public float randomCoinThreshold;
 
-    public float spikeDifficulty;
-    public float slideDifficulty;
+    private float spikeDifficulty = 10;
+    private float slideDifficulty = 10;
+    private float attackDifficulty = 10;
     public float randomSpikeThreshold;
     public float randomSlideObstacleThreshold;
+    public float randomAttackObstacleThreshold;
     public ObejctPooler spikePool;
     public ObejctPooler slideObstaclePool;
+    public ObejctPooler attackObstaclePool;
 
     public float powerupHeight;
     public ObejctPooler powerupPool;
     private float powerupThreshold;
-    public float powerluck;
+    private float powerluck = 10;
     private int currentPlatformSpaceChance;
     private int currentPlatformHeightChance;
 
@@ -139,10 +142,19 @@ public class PlatformGenerator : MonoBehaviour {
                 newSlideObstacle.transform.position = transform.position + slideObstaclePosition;
                 newSlideObstacle.transform.rotation = transform.rotation;
                 newSlideObstacle.SetActive(true);
-
-
             }
+            else if (generateAttackObstacle())
+            {
+                GameObject newAttackObstacle = attackObstaclePool.GetPooledObject();
 
+                float attackObstacleXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 3f, (platformWidths[platformSelector]) / 2f - 3f);
+
+                Vector3 attackObstaclePosition = new Vector3(attackObstacleXPosition, 1f, 0f);
+
+                newAttackObstacle.transform.position = transform.position + attackObstaclePosition;
+                newAttackObstacle.transform.rotation = transform.rotation;
+                newAttackObstacle.SetActive(true);
+            }
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) , transform.position.y, transform.position.z);
 
         }
@@ -182,6 +194,20 @@ public class PlatformGenerator : MonoBehaviour {
         return false;
 
     }
+
+    private bool generateAttackObstacle()
+    {
+        int randomValueToDetermine = Random.Range(0, 100);
+        if (randomValueToDetermine <= randomAttackObstacleThreshold)
+        {
+            randomAttackObstacleThreshold = attackDifficulty * (playerModifier - 1);
+            return true;
+        }
+        randomAttackObstacleThreshold += 2;
+        return false;
+
+    }
+
 
     private bool generatePowerup()
     {

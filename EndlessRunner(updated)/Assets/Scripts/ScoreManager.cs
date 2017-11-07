@@ -25,10 +25,7 @@ public class ScoreManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (PlayerPrefs.HasKey("HighScore"))
-        {
-            highScoreCount = PlayerPrefs.GetFloat("HighScore");
-        }
+        highScoreCount = PlayerPrefs.GetFloat("HighScore", 0);
         pointsPerSecondStore = pointsPerSecond;
 	}
 	
