@@ -21,6 +21,7 @@ public class Options : MonoBehaviour {
     void OnEnable()
     {
         gameSettings = new GameSettings();
+        music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
 
         fullscreenToggle.onValueChanged.AddListener(delegate { OnFullScreenToggle(); });
         resolutionDropDown.onValueChanged.AddListener(delegate { OnResolutionChange(); });

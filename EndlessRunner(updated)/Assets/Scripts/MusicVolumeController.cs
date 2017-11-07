@@ -3,30 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class MusicSingleton : MonoBehaviour {
+public class MusicVolumeController : MonoBehaviour {
     private AudioSource _audioSource;
     private GameSettings gameSettings;
     private float gameVol;
-
-    private void Awake()
-    {
+    // Use this for initialization
+    void Start () {
         gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.dataPath + "/gamesettings.json"));
-
         gameVol = gameSettings.musicVolume;
-
-        DontDestroyOnLoad(transform.gameObject);
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = gameVol;
-    }
-
-    public void PlayMusic()
-    {
-        if (_audioSource.isPlaying) return;
-        _audioSource.Play();
-    }
-
-    public void StopMusic()
-    {
-        _audioSource.Stop();
     }
 }
