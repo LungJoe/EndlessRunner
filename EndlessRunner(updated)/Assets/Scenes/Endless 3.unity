@@ -3605,7 +3605,7 @@ MonoBehaviour:
   invincible: 0
   isCRowdy: 0
   isARowdy: 0
-  isRRowdy: 1
+  isRRowdy: 0
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3

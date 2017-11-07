@@ -47,12 +47,15 @@ public class PlayerController : MonoBehaviour
     public bool invincible = false;
     public bool isCRowdy;
     public bool isARowdy;
-    public bool isRRowdy;
+    public bool isRRowdy; 
 
     //private Collider2D myCollider
     // Use this for initialization
     void Start()
     {
+        isCRowdy = false;
+        isARowdy = false;
+        isRRowdy = true;
         myRigidbody = GetComponent<Rigidbody2D>();
         // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();

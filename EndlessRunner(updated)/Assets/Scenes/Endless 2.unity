@@ -4193,7 +4193,7 @@ MonoBehaviour:
   isSliding: 0
   invincible: 0
   isCRowdy: 0
-  isARowdy: 1
+  isARowdy: 0
   isRRowdy: 0
 --- !u!95 &1143465324
 Animator:

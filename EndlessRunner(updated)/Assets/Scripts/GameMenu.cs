@@ -12,7 +12,7 @@ public class GameMenu : MonoBehaviour
     public string MainMenu;
     public string ScoreBoard;
     public string gameMenu;
-
+    public PlayerController thePlayer;
     public Button[] levels;
     public Button[] skins;
     public Text bankText;
@@ -43,11 +43,18 @@ public class GameMenu : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Bank") >= 500 && skins[1].interactable == false)
         {
-            skins[1].interactable = true; 
+            skins[1].interactable = true;
+            thePlayer.isARowdy = true;
+            thePlayer.isRRowdy = false;
+            thePlayer.isCRowdy = false;
         }
         if (PlayerPrefs.GetInt("Bank") >= 1250 && skins[2].interactable == false)
         {
             skins[2].interactable = true;
+            thePlayer.isCRowdy = true;
+            thePlayer.isARowdy = false;
+            thePlayer.isRRowdy = false;
+
         }
     }
     public void PlayStage1()
