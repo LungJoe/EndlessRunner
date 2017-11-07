@@ -1063,6 +1063,7 @@ MonoBehaviour:
   invincible: 0
   isCRowdy: 0
   isARowdy: 0
+  isRRowdy: 0
 --- !u!50 &384303204
 Rigidbody2D:
   serializedVersion: 4
@@ -3603,7 +3604,8 @@ MonoBehaviour:
   isSliding: 0
   invincible: 0
   isCRowdy: 0
-  isARowdy: 1
+  isARowdy: 0
+  isRRowdy: 1
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3
