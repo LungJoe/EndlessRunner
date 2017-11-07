@@ -1062,6 +1062,7 @@ MonoBehaviour:
   isSliding: 0
   invincible: 0
   isCRowdy: 0
+  isARowdy: 0
 --- !u!50 &384303204
 Rigidbody2D:
   serializedVersion: 4
@@ -3600,8 +3601,9 @@ MonoBehaviour:
   deathSound: {fileID: 974073097}
   isAttacking: 0
   isSliding: 0
-  invincible: 1
-  isCRowdy: 1
+  invincible: 0
+  isCRowdy: 0
+  isARowdy: 1
 --- !u!95 &1143465324
 Animator:
   serializedVersion: 3

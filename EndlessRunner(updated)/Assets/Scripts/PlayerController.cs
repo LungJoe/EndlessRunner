@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     public bool isSliding;
     public bool invincible = false;
     public bool isCRowdy;
+    public bool isARowdy;
+    public bool isRRowdy;
 
     //private Collider2D myCollider
     // Use this for initialization
@@ -220,6 +222,8 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetBool("Grounded", grounded);
         myAnimator.SetBool("Attacking", isAttacking);
         myAnimator.SetBool("CRowdy", isCRowdy);
+        myAnimator.SetBool("ARowdy", isARowdy);
+        myAnimator.SetBool("RRowdy", isRRowdy);
     }
 
     void OnCollisionEnter2D(Collision2D other)
