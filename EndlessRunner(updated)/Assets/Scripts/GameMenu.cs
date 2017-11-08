@@ -35,12 +35,12 @@ public class GameMenu : MonoBehaviour
         if (PlayerPrefs.GetInt("Bank") >= 1000 && levels[1].interactable == false)
         {
             levels[1].interactable = true;
-			GameObject.FindGameObjectWithTag("Stage2").GetComponent<Image>().enabled = false;
+			setObjectsFalseByTag ("Stage2");
         }
         if(PlayerPrefs.GetInt("Bank") >= 1500 && levels[2].interactable == false)
         {
             levels[2].interactable = true;
-			GameObject.FindGameObjectWithTag("Stage3").GetComponent<Image>().enabled = false;
+			setObjectsFalseByTag ("Stage3");
         }
 
         if (PlayerPrefs.GetInt("Bank") >= 500 && skins[1].interactable == false)
@@ -86,4 +86,12 @@ public class GameMenu : MonoBehaviour
         SceneManager.LoadScene(gameMenu);
     }
 
+	public void setObjectsFalseByTag(string tag){
+		GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag (tag);
+
+		foreach(GameObject go in gameObjectArray)
+		{
+			go.SetActive (false);
+		}
+	}
 }
