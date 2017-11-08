@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
     public bool isSliding;
     public bool invincible = false;
-    public static bool isCRowdy;
-    public static bool isARowdy;
-    public static bool isRRowdy;
+    public bool isCRowdy;
+    public bool isARowdy;
+    public bool isRRowdy;
 
     public ButtonImageSwitch skinButton;
 
@@ -75,6 +75,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //grounded = Physics2D.IsTouchingLayers(myCollider, WhatIsGround); //if collider touches another, grounded = true
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            isARowdy = false;
+            isRRowdy = true;
+            isCRowdy = false;
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            isARowdy = true;
+            isRRowdy = false;
+            isCRowdy = false;
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            isARowdy = false;
+            isRRowdy = false;
+            isCRowdy = true;
+        }
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
 
@@ -134,28 +152,38 @@ public class PlayerController : MonoBehaviour
 
 
         //Attack Functionality
-       
-        if (Input.GetKey(KeyCode.A) && grounded)
+       /*
+        if (Input.GetKeyDown(KeyCode.A) && grounded)
         {
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
-            isAttacking = true;
+            startTime = Time.time;
+            holdTime = .2f;
+            if(startTime + holdTime >= Time.time)
+            {
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
+                isAttacking = true;
+            }
+            else if(startTime + holdTime <= Time.time)
+            {
+                isAttacking =false;
+            }
         }
+        
         if (Input.GetKeyUp(KeyCode.A))
         {
             isAttacking = false;
             canDoubleJump = false;
             startTime = 0f;
         }
-        
+        */
 
         //Alternate Attack (not as good as above but wont keep attacking if button held
-        /*
+      
         if (Input.GetKeyDown(KeyCode.A) )
         {
             startTime = Time.time;
             holdTime = .2f;
         }
-        if (Input.GetKey(KeyCode.A) && grounded || Input.GetKey(KeyCode.A) && !grounded && canDoubleJump)
+        if (Input.GetKey(KeyCode.A) && grounded )//|| Input.GetKey(KeyCode.A) && !grounded && canDoubleJump)
         {
             if (startTime + holdTime <= Time.time)
             {
@@ -173,7 +201,7 @@ public class PlayerController : MonoBehaviour
             startTime = 0f;
             canDoubleJump = false;
         }
-        */
+      
 
         //Slide Functionality
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
