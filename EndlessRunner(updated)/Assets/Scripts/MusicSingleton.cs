@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Exception = System.Exception;
 
 public class MusicSingleton : MonoBehaviour {
     private AudioSource _audioSource;
@@ -10,7 +11,17 @@ public class MusicSingleton : MonoBehaviour {
 
     private void Awake()
     {
-        gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.dataPath + "/gamesettings.json"));
+		gameSettings = new GameSettings ();
+		try{
+        	gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.dataPath + "/gamesettings.json"));
+		} catch(Exception e){
+			gameSettings.fullScreen = false;
+			gameSettings.resolutionIndex = 0;
+			gameSettings.textureQuality = 0;
+			gameSettings.musicVolume = 0.25F;
+			string jsonData = JsonUtility.ToJson(gameSettings, true);
+			File.WriteAllText(Application.dataPath + "/gamesettings.json", jsonData);
+		}
 
         gameVol = gameSettings.musicVolume;
 
