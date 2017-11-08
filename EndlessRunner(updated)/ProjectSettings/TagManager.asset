@@ -7,10 +7,8 @@ TagManager:
   - killbox
   - attackBox
   - Music
-  - Stage1
   - Stage2
   - Stage3
-  - Skin1
   - Skin2
   - Skin3
   layers:
