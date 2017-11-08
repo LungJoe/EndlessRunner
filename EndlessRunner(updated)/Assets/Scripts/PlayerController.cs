@@ -47,15 +47,21 @@ public class PlayerController : MonoBehaviour
     public bool invincible = false;
     public bool isCRowdy;
     public bool isARowdy;
-    public bool isRRowdy; 
+    public bool isRRowdy;
+    public bool pressed11;
+    public bool pressed22;
+    public bool pressed33;
+
+    public ButtonImageSwitch skinButton;
 
     //private Collider2D myCollider
     // Use this for initialization
     void Start()
     {
-        isCRowdy = false;
+        
         isARowdy = false;
         isRRowdy = true;
+        isCRowdy = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         // myCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
@@ -71,7 +77,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //grounded = Physics2D.IsTouchingLayers(myCollider, WhatIsGround); //if collider touches another, grounded = true
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
@@ -219,7 +224,7 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
             canDoubleJump = true;
         }
-
+            
         myAnimator.SetBool("Sliding", isSliding);
         myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
