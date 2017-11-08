@@ -32,23 +32,23 @@ public class GameMenu : MonoBehaviour
     private void Update()
     {
         bankText.text = "Coins - " + PlayerPrefs.GetInt("Bank", 0);
-        if (PlayerPrefs.GetInt("Bank") >= 1000 && levels[1].interactable == false)
+        if (PlayerPrefs.GetInt("Bank") >= 100 && levels[1].interactable == false)
         {
             levels[1].interactable = true;
 			setObjectsFalseByTag ("Stage2");
         }
-        if(PlayerPrefs.GetInt("Bank") >= 1500 && levels[2].interactable == false)
+        if(PlayerPrefs.GetInt("Bank") >= 200 && levels[2].interactable == false)
         {
             levels[2].interactable = true;
 			setObjectsFalseByTag ("Stage3");
         }
 
-        if (PlayerPrefs.GetInt("Bank") >= 500 && skins[1].interactable == false)
+        if (PlayerPrefs.GetInt("Bank") >= 50 && skins[1].interactable == false)
         {
             skins[1].interactable = true;
 			GameObject.FindGameObjectWithTag("Skin2").GetComponent<Image>().enabled = false;
         }
-        if (PlayerPrefs.GetInt("Bank") >= 1250 && skins[2].interactable == false)
+        if (PlayerPrefs.GetInt("Bank") >= 150 && skins[2].interactable == false)
         {
             skins[2].interactable = true;
 			GameObject.FindGameObjectWithTag("Skin3").GetComponent<Image>().enabled = false;
@@ -71,6 +71,22 @@ public class GameMenu : MonoBehaviour
         SceneManager.LoadScene(playEndless3);
     }
 
+    public void PickSkins1()
+    {
+        PlayerPrefs.SetInt("PlayerSkin", 1);
+    }
+
+    public void PickSkins2()
+    {
+        PlayerPrefs.SetInt("PlayerSkin", 2);
+
+    }
+
+    public void PickSkins3()
+    {
+        PlayerPrefs.SetInt("PlayerSkin", 3);
+
+    }
     public void ViewScoreboard()
     {
         SceneManager.LoadScene(ScoreBoard);
