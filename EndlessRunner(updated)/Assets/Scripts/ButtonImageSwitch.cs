@@ -52,25 +52,30 @@ public class ButtonImageSwitch : MonoBehaviour
       
     }
    
+
+    //This doesn't work. Doesn't actually change the player object values from endless1,2,3. 
     public void taskOnClick1()
     {
         Debug.Log("Pressed 1");
-        thePlayer.isRRowdy = true;
-        thePlayer.isCRowdy = false;
-        thePlayer.isARowdy = false;
+        PlayerController.isRRowdy = true;
+        PlayerController.isCRowdy = false;
+        PlayerController.isARowdy = false;
     }
     public void taskOnClick2()
     {
         Debug.Log("pressed 2");
 
-        thePlayer.isRRowdy = false;
-        thePlayer.isCRowdy = false;
-        thePlayer.isARowdy = true;
+        PlayerController.isRRowdy = false;
+        PlayerController.isCRowdy = false;
+        PlayerController.isARowdy = true;
     }
     public void taskOnClick3()
     {
         Debug.Log("pressed 3");
-              
+        PlayerController.isRRowdy = false;
+        PlayerController.isCRowdy = true;
+        PlayerController.isARowdy = false;
+
     }
 
 }

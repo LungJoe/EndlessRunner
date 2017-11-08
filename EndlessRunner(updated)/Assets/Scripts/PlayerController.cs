@@ -45,12 +45,9 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
     public bool isSliding;
     public bool invincible = false;
-    public bool isCRowdy;
-    public bool isARowdy;
-    public bool isRRowdy;
-    public bool pressed11;
-    public bool pressed22;
-    public bool pressed33;
+    public static bool isCRowdy;
+    public static bool isARowdy;
+    public static bool isRRowdy;
 
     public ButtonImageSwitch skinButton;
 

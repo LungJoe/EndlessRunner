@@ -839,9 +839,6 @@ MonoBehaviour:
   isAttacking: 1
   isSliding: 0
   invincible: 0
-  isCRowdy: 0
-  isARowdy: 0
-  isRRowdy: 0
   skinButton: {fileID: 0}
 --- !u!50 &17845282
 Rigidbody2D:
@@ -3962,9 +3959,6 @@ MonoBehaviour:
   isAttacking: 0
   isSliding: 1
   invincible: 0
-  isCRowdy: 0
-  isARowdy: 0
-  isRRowdy: 0
   skinButton: {fileID: 0}
 --- !u!50 &1300026483
 Rigidbody2D:
@@ -5725,9 +5719,6 @@ MonoBehaviour:
   isAttacking: 0
   isSliding: 0
   invincible: 0
-  isCRowdy: 0
-  isARowdy: 0
-  isRRowdy: 0
   skinButton: {fileID: 0}
 --- !u!50 &1892297221
 Rigidbody2D:
