@@ -32,7 +32,14 @@ public class DeathMenu : MonoBehaviour {
 
     public void PostHighScore()
     {
-        StartCoroutine(StartPostHighScore());
+        // tests to see if name was entered, doesn't post if no name
+        if (highScoreName.text.Length >= 2)
+            StartCoroutine(StartPostHighScore());
+        else
+        {
+            postHighScoreButton.GetComponentInChildren<Text>().color = Color.red;
+            postHighScoreButton.GetComponentInChildren<Text>().text = "Enter a Valid Name";
+        }
     }
 
     private IEnumerator StartPostHighScore()
@@ -80,6 +87,7 @@ public class DeathMenu : MonoBehaviour {
             }
             else
             {
+                postHighScoreButton.GetComponentInChildren<Text>().color = Color.black;
                 postHighScoreButton.GetComponentInChildren<Text>().text = "Posted!";
                 postHighScoreButton.interactable = false;
             }
