@@ -27,11 +27,11 @@ public class ButtonImageSwitch : MonoBehaviour
         {
             button.GetComponent<Image>().sprite = locked;
         }
-        
+        /*
         skin1.onClick.AddListener(taskOnClick1);
         skin2.onClick.AddListener(taskOnClick2);
         skin3.onClick.AddListener(taskOnClick3);
-       
+       */
     }
 
     // Update is called once per frame
@@ -45,15 +45,16 @@ public class ButtonImageSwitch : MonoBehaviour
         {
             button.GetComponent<Image>().sprite = locked;
         }
-        
+        /*
         skin1.onClick.AddListener(taskOnClick1);
         skin2.onClick.AddListener(taskOnClick2);
         skin3.onClick.AddListener(taskOnClick3);
-      
+      */
     }
    
 
     //This doesn't work. Doesn't actually change the player object values from endless1,2,3. 
+    /*
     public void taskOnClick1()
     {
         Debug.Log("Pressed 1");
@@ -77,5 +78,5 @@ public class ButtonImageSwitch : MonoBehaviour
         PlayerController.isARowdy = false;
 
     }
-
+    */
 }
