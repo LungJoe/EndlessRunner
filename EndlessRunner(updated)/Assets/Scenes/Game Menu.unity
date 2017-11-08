@@ -77,17 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -406,74 +404,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 55211369}
---- !u!1 &122396164
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 122396165}
-  - component: {fileID: 122396167}
-  - component: {fileID: 122396166}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Skin3
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &122396165
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122396164}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1758869466}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3, y: 0.000030517578}
-  m_SizeDelta: {x: 35, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &122396166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122396164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &122396167
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122396164}
 --- !u!1 &179278802
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +606,9 @@ RectTransform:
   - {fileID: 2023124785}
   - {fileID: 2071071386}
   - {fileID: 1045505646}
-  - {fileID: 1188632994}
+  - {fileID: 930229433}
+  - {fileID: 1172990291}
+  - {fileID: 1758869466}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -883,7 +815,6 @@ GameObject:
   - component: {fileID: 351953675}
   - component: {fileID: 351953674}
   - component: {fileID: 351953673}
-  - component: {fileID: 351953676}
   m_Layer: 5
   m_Name: Stage 1 Button
   m_TagString: Untagged
@@ -996,27 +927,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 351953671}
---- !u!114 &351953676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 351953671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 351953674}
-  skin1: {fileID: 0}
-  skin2: {fileID: 0}
-  skin3: {fileID: 0}
-  unlocked: {fileID: 21300000, guid: 26343f09985344248ba9d92e997ae516, type: 3}
-  locked: {fileID: 0}
-  thePlayer: {fileID: 0}
-  pressed1: 0
-  pressed2: 0
-  pressed3: 0
 --- !u!1 &405539784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1003,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481792937}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1126,74 +1036,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481792937}
---- !u!1 &487721606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 487721607}
-  - component: {fileID: 487721609}
-  - component: {fileID: 487721608}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Skin2
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &487721607
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487721606}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1172990291}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1, y: 0.000030517578}
-  m_SizeDelta: {x: 35, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &487721608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487721606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &487721609
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487721606}
 --- !u!1 &499587721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,8 +1802,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1188632994}
-  m_RootOrder: 0
+  m_Father: {fileID: 288460442}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -2007,8 +1849,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1188632991}
-        m_MethodName: skinButton1Function
+      - m_Target: {fileID: 288460444}
+        m_MethodName: PickSkins1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2065,15 +1907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 930229435}
-  skin1: {fileID: 930229434}
-  skin2: {fileID: 1172990292}
-  skin3: {fileID: 1758869467}
   unlocked: {fileID: 21300062, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
   locked: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  thePlayer: {fileID: 0}
-  pressed1: 0
-  pressed2: 0
-  pressed3: 0
 --- !u!1 &1014122058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,7 +2130,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1172740338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2356,10 +2191,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 487721607}
-  m_Father: {fileID: 1188632994}
-  m_RootOrder: 1
+  m_Children: []
+  m_Father: {fileID: 288460442}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -2405,8 +2239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1188632991}
-        m_MethodName: skinButton2Function
+      - m_Target: {fileID: 288460444}
+        m_MethodName: PickSkins2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2463,99 +2297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1172990293}
-  skin1: {fileID: 930229434}
-  skin2: {fileID: 1172990292}
-  skin3: {fileID: 1758869467}
   unlocked: {fileID: 21300064, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
   locked: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  thePlayer: {fileID: 0}
-  pressed1: 0
-  pressed2: 0
-  pressed3: 0
---- !u!1 &1188632990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1188632994}
-  - component: {fileID: 1188632993}
-  - component: {fileID: 1188632992}
-  - component: {fileID: 1188632991}
-  m_Layer: 5
-  m_Name: Skin Buttons
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1188632991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1188632990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed98e0b03c0e54b1491afbc15138f903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skinIndex: 0
---- !u!114 &1188632992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1188632990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1188632993
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1188632990}
---- !u!224 &1188632994
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1188632990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 930229433}
-  - {fileID: 1172990291}
-  - {fileID: 1758869466}
-  m_Father: {fileID: 288460442}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -198.09}
-  m_SizeDelta: {x: 0, y: -396.18}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1210166901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,7 +2893,6 @@ GameObject:
   - component: {fileID: 1631116853}
   - component: {fileID: 1631116852}
   - component: {fileID: 1631116851}
-  - component: {fileID: 1631116854}
   m_Layer: 5
   m_Name: Stage 3 Button
   m_TagString: Untagged
@@ -3265,27 +3007,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1631116849}
---- !u!114 &1631116854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1631116849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 1631116852}
-  skin1: {fileID: 0}
-  skin2: {fileID: 0}
-  skin3: {fileID: 0}
-  unlocked: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  locked: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  thePlayer: {fileID: 0}
-  pressed1: 0
-  pressed2: 0
-  pressed3: 0
 --- !u!1 &1684181681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,6 +3017,7 @@ GameObject:
   - component: {fileID: 1684181682}
   - component: {fileID: 1684181684}
   - component: {fileID: 1684181683}
+  - component: {fileID: 1684181685}
   m_Layer: 5
   m_Name: Image
   m_TagString: Stage3
@@ -3354,6 +3076,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1684181681}
+--- !u!114 &1684181685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1684181681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba7a355f82f9be4f9698b6c83d6a80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!1 &1701492740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,6 +3098,7 @@ GameObject:
   - component: {fileID: 1701492741}
   - component: {fileID: 1701492743}
   - component: {fileID: 1701492742}
+  - component: {fileID: 1701492744}
   m_Layer: 5
   m_Name: Image
   m_TagString: Stage2
@@ -3422,6 +3157,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1701492740}
+--- !u!114 &1701492744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701492740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba7a355f82f9be4f9698b6c83d6a80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
 --- !u!1 &1733292171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,10 +3232,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 122396165}
-  m_Father: {fileID: 1188632994}
-  m_RootOrder: 2
+  m_Children: []
+  m_Father: {fileID: 288460442}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3534,8 +3280,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1188632991}
-        m_MethodName: skinButton3Function
+      - m_Target: {fileID: 288460444}
+        m_MethodName: PickSkins3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3592,15 +3338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1758869468}
-  skin1: {fileID: 930229434}
-  skin2: {fileID: 1172990292}
-  skin3: {fileID: 1758869467}
   unlocked: {fileID: 21300066, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
   locked: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  thePlayer: {fileID: 0}
-  pressed1: 0
-  pressed2: 0
-  pressed3: 0
 --- !u!1 &1782094344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,7 +4098,6 @@ GameObject:
   - component: {fileID: 2106646900}
   - component: {fileID: 2106646899}
   - component: {fileID: 2106646898}
-  - component: {fileID: 2106646901}
   m_Layer: 5
   m_Name: Stage 2 Button
   m_TagString: Untagged
@@ -4474,27 +4212,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106646896}
---- !u!114 &2106646901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2106646896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8231455bffdbf54681a3d1e76a2bc13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 2106646899}
-  skin1: {fileID: 0}
-  skin2: {fileID: 0}
-  skin3: {fileID: 0}
-  unlocked: {fileID: 21300000, guid: 54898a0c8e2761e4e8beb17c2cf1c219, type: 3}
-  locked: {fileID: 21300060, guid: 7319808fdef1e3142ae4a0973baf27c7, type: 3}
-  thePlayer: {fileID: 0}
-  pressed1: 0
-  pressed2: 0
-  pressed3: 0
 --- !u!1 &2136526895
 GameObject:
   m_ObjectHideFlags: 0
