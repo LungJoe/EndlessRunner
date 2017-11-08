@@ -75,7 +75,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //grounded = Physics2D.IsTouchingLayers(myCollider, WhatIsGround); //if collider touches another, grounded = true
-        if (Input.GetKey(KeyCode.Alpha1))
+        switch(PlayerPrefs.GetInt("PlayerSkin", 1))
+        {
+            case 1:
+                isARowdy = false;
+                isRRowdy = true;
+                isCRowdy = false;
+                break;
+            case 2:
+                isARowdy = true;
+                isRRowdy = false;
+                isCRowdy = false;
+                break;
+            case 3:
+                isARowdy = false;
+                isRRowdy = false;
+                isCRowdy = true;
+                break;
+        }
+        /*if (Input.GetKey(KeyCode.Alpha1))
         {
             isARowdy = false;
             isRRowdy = true;
@@ -93,7 +111,7 @@ public class PlayerController : MonoBehaviour
             isRRowdy = false;
             isCRowdy = true;
         }
-
+        */
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
 
         if (transform.position.x > speedMilestoneCount)

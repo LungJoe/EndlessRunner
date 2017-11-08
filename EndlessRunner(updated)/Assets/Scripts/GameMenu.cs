@@ -71,6 +71,22 @@ public class GameMenu : MonoBehaviour
         SceneManager.LoadScene(playEndless3);
     }
 
+    public void PickSkins1()
+    {
+        PlayerPrefs.SetInt("PlayerSkin", 1);
+    }
+
+    public void PickSkins2()
+    {
+        PlayerPrefs.SetInt("PlayerSkin", 2);
+
+    }
+
+    public void PickSkins3()
+    {
+        PlayerPrefs.SetInt("PlayerSkin", 3);
+
+    }
     public void ViewScoreboard()
     {
         SceneManager.LoadScene(ScoreBoard);
