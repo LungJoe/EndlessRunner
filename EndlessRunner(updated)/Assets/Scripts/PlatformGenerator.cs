@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlatformGenerator : MonoBehaviour {
     
@@ -74,6 +75,8 @@ public class PlatformGenerator : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+
         playerModifier = (int)(thePlayer.moveSpeed / 10);
         if(prevPlayerMod != playerModifier)
         {
@@ -131,7 +134,7 @@ public class PlatformGenerator : MonoBehaviour {
                 newSpike.SetActive(true);
             }
 
-            if (generateSlideObstacle())
+            if (generateSlideObstacle() && ((currentScene.name == "Endless 2") || (currentScene.name == "Endless 3")))
             {
                 GameObject newSlideObstacle = slideObstaclePool.GetPooledObject();
 
@@ -143,7 +146,7 @@ public class PlatformGenerator : MonoBehaviour {
                 newSlideObstacle.transform.rotation = transform.rotation;
                 newSlideObstacle.SetActive(true);
             }
-            else if (generateAttackObstacle())
+            else if (generateAttackObstacle() && (currentScene.name == "Endless 3"))
             {
                 GameObject newAttackObstacle = attackObstaclePool.GetPooledObject();
 
