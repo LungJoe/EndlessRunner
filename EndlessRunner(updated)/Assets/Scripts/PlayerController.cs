@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
     public ScoreManager scorer;
     public AudioSource jumpSound;
     public AudioSource deathSound;
+
+    public GameObject resumeButton;
 
     public bool isAttacking;
     public bool isSliding;
@@ -126,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !isSliding && !isAttacking)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !isSliding && !isAttacking && !GUIClicked())
         {
             if (grounded)
             {
@@ -151,7 +154,7 @@ public class PlayerController : MonoBehaviour
         }
         
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && !stoppedJumping && !GUIClicked())
         {
             if (jumpTimeCounter > 0)
             {
@@ -267,7 +270,7 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
             canDoubleJump = true;
         }
-            
+
         myAnimator.SetBool("Sliding", isSliding);
         myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
@@ -275,6 +278,18 @@ public class PlayerController : MonoBehaviour
         myAnimator.SetBool("CRowdy", isCRowdy);
         myAnimator.SetBool("ARowdy", isARowdy);
         myAnimator.SetBool("RRowdy", isRRowdy);
+    }
+
+    bool GUIClicked()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (EventSystem.current.currentSelectedGameObject == GameObject.Find("PauseButton"))
+                return true;
+            if (EventSystem.current.currentSelectedGameObject == resumeButton)
+                return true;
+        }
+        return false;
     }
 
     void OnCollisionEnter2D(Collision2D other)

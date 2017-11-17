@@ -1066,6 +1066,7 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  resumeButton: {fileID: 0}
   isAttacking: 0
   isSliding: 0
   invincible: 0
@@ -3690,7 +3691,7 @@ MonoBehaviour:
   speedCap: 200
   jumpTime: 0.25
   holdTime: 1.5
-  grounded: 0
+  grounded: 1
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -3700,6 +3701,7 @@ MonoBehaviour:
   scorer: {fileID: 2021710863}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  resumeButton: {fileID: 320107158}
   isAttacking: 0
   isSliding: 0
   invincible: 0

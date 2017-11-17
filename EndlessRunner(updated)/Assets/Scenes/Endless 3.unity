@@ -1152,6 +1152,7 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  resumeButton: {fileID: 0}
   isAttacking: 0
   isSliding: 0
   invincible: 0
@@ -4052,6 +4053,7 @@ MonoBehaviour:
   scorer: {fileID: 0}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
+  resumeButton: {fileID: 320107158}
   isAttacking: 0
   isSliding: 0
   invincible: 0
