@@ -100,13 +100,11 @@ public class DeathMenu : MonoBehaviour {
         bank.text = "Stash:\t" + currentStash;
         grabbed.text = "Collected:\t" + collected;
         total.text = "Total:\t" + (currentStash + collected);
-        Debug.Log(collected);
     }
 
     public void setText()
     {
         currentStash = PlayerPrefs.GetInt("Bank", 0);
-        Debug.Log(collected);
         totalCoins = currentStash + collected;
         collected = 0;
         PlayerPrefs.SetInt("Bank", totalCoins);
