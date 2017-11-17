@@ -11,13 +11,13 @@ public class GameMenu : MonoBehaviour
     public string playEndless3;
     public string MainMenu;
     public string ScoreBoard;
-    public string gameMenu;
     public PlayerController thePlayer;
     public Button[] levels;
     public Button[] skins;
     public Text bankText;
     private void Start()
     {
+
         for(int i = 1; i < levels.Length; i++)
         {
             levels[i].interactable = false;
@@ -27,38 +27,38 @@ public class GameMenu : MonoBehaviour
             skins[i].interactable = false;
         }
         bankText.text = "Coins - " + PlayerPrefs.GetInt("Bank", 0);
-    }
-
-    private void Update()
-    {
-        bankText.text = "Coins - " + PlayerPrefs.GetInt("Bank", 0);
         if (PlayerPrefs.GetInt("Bank") >= 100 && levels[1].interactable == false)
         {
             levels[1].interactable = true;
-			setObjectsFalseByTag ("Stage2");
+            setObjectsFalseByTag("Stage2");
         }
-        if(PlayerPrefs.GetInt("Bank") >= 200 && levels[2].interactable == false)
+        if (PlayerPrefs.GetInt("Bank") >= 200 && levels[2].interactable == false)
         {
             levels[2].interactable = true;
-			setObjectsFalseByTag ("Stage3");
+            setObjectsFalseByTag("Stage3");
         }
 
         if (PlayerPrefs.GetInt("Bank") >= 50 && skins[1].interactable == false)
         {
             skins[1].interactable = true;
-            if(GameObject.FindGameObjectWithTag("Skin2") != null)
-			    GameObject.FindGameObjectWithTag("Skin2").GetComponent<Image>().enabled = false;
+            if (GameObject.FindGameObjectWithTag("Skin2") != null)
+                GameObject.FindGameObjectWithTag("Skin2").GetComponent<Image>().enabled = false;
         }
         if (PlayerPrefs.GetInt("Bank") >= 150 && skins[2].interactable == false)
         {
             skins[2].interactable = true;
-            if(GameObject.FindGameObjectWithTag("Skin3") != null)
-			    GameObject.FindGameObjectWithTag("Skin3").GetComponent<Image>().enabled = false;
+            if (GameObject.FindGameObjectWithTag("Skin3") != null)
+                GameObject.FindGameObjectWithTag("Skin3").GetComponent<Image>().enabled = false;
         }
+    }
+
+    private void Update()
+    {
+
     }
     public void PlayStage1()
     {
-        if(GameObject.FindGameObjectWithTag("Music") != null)
+        if (GameObject.FindGameObjectWithTag("Music") != null)
             GameObject.FindGameObjectWithTag("Music").GetComponent<MusicSingleton>().StopMusic();
         SceneManager.LoadScene(playEndless);
     }
@@ -100,11 +100,6 @@ public class GameMenu : MonoBehaviour
     public void GoBackToMainMenu()
     {
         SceneManager.LoadScene(MainMenu);
-    }
-
-    public void GoToGameMenu()
-    {
-        SceneManager.LoadScene(gameMenu);
     }
 
 	public void setObjectsFalseByTag(string tag){

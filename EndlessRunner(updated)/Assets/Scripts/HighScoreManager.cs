@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using LitJson;
+using UnityEngine.SceneManagement;
 
 public class HighScoreManager : MonoBehaviour {
 
@@ -11,9 +12,9 @@ public class HighScoreManager : MonoBehaviour {
     public List<Text> scoreText;
     public string loginURL = "https://easel1.fulgentcorp.com/bifrost/ws.php?json=[{%20%22action%22:%22login%22},{%20%22login%22:%22bifrost_corhelm%22},{%20%22password%22:%22296aedae45078da5fea8a217986ec96d6234940c477bb0fcfc807ce58b9f737c%22},{%20%22app_code%22:%22r8CDypEHXwRNZ7xT%22},{%20%22session_type%22:%22session_key%22},{%20%22checksum%22:%22f3727e16f263407111ce2f46aef3c1bdab230743f59c4296bd429ba896271b22%22}]";
     public string getScoresURL;
+    public string gameMenu;
     public GameObject scrollbar;
 
-    // Use this for initialization
     IEnumerator Start() {
         // sets scrollbar to top
         scrollbar = GameObject.Find("Scrollbar");
@@ -56,5 +57,10 @@ public class HighScoreManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void GoToGameMenu()
+    {
+        SceneManager.LoadScene(gameMenu);
     }
 }
