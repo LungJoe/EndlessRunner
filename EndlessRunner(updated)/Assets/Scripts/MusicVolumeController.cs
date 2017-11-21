@@ -5,12 +5,11 @@ using System.IO;
 
 public class MusicVolumeController : MonoBehaviour {
     private AudioSource _audioSource;
-    private GameSettings gameSettings;
     private float gameVol;
+
     // Use this for initialization
     void Start () {
-        gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.dataPath + "/gamesettings.json"));
-        gameVol = gameSettings.musicVolume;
+        gameVol = PlayerPrefs.GetFloat("musicVol");
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = gameVol;
     }
