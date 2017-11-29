@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour {
 
     public bool scoreIncreasing;
 
-    public bool shouldDouble;
+    public bool shouldDouble = false;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +48,7 @@ public class ScoreManager : MonoBehaviour {
         coinText.text = "Coins: " + coinCount;
 
 	}
-
+   
     public void AddScore(int pointsToAdd)
     {
         if (shouldDouble)
@@ -57,7 +57,7 @@ public class ScoreManager : MonoBehaviour {
         }
         scoreCount += pointsToAdd;
     }
-
+    
     public void AddCoin()
     {
         coinCount++;

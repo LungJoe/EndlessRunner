@@ -93,25 +93,6 @@ public class PlayerController : MonoBehaviour
                 isCRowdy = true;
                 break;
         }
-        /*if (Input.GetKey(KeyCode.Alpha1))
-        {
-            isARowdy = false;
-            isRRowdy = true;
-            isCRowdy = false;
-        }
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            isARowdy = true;
-            isRRowdy = false;
-            isCRowdy = false;
-        }
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            isARowdy = false;
-            isRRowdy = false;
-            isCRowdy = true;
-        }
-        */
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, WhatIsGround);
 
         if (transform.position.x > speedMilestoneCount)
@@ -167,41 +148,13 @@ public class PlayerController : MonoBehaviour
             stoppedJumping = true;
 
         }
-
-
-        //Attack Functionality
-       /*
-        if (Input.GetKeyDown(KeyCode.A) && grounded)
-        {
-            startTime = Time.time;
-            holdTime = .2f;
-            if(startTime + holdTime >= Time.time)
-            {
-                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
-                isAttacking = true;
-            }
-            else if(startTime + holdTime <= Time.time)
-            {
-                isAttacking =false;
-            }
-        }
-        
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            isAttacking = false;
-            canDoubleJump = false;
-            startTime = 0f;
-        }
-        */
-
-        //Alternate Attack (not as good as above but wont keep attacking if button held
       
         if (Input.GetKeyDown(KeyCode.A) )
         {
             startTime = Time.time;
             holdTime = .2f;
         }
-        if (Input.GetKey(KeyCode.A) && grounded )//|| Input.GetKey(KeyCode.A) && !grounded && canDoubleJump)
+        if (Input.GetKey(KeyCode.A) && grounded )
         {
             if (startTime + holdTime <= Time.time)
             {

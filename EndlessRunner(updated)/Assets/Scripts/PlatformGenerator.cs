@@ -74,6 +74,7 @@ public class PlatformGenerator : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        /*
         playerModifier = (int)(thePlayer.moveSpeed / 10);
         if(prevPlayerMod != playerModifier)
         {
@@ -81,6 +82,7 @@ public class PlatformGenerator : MonoBehaviour {
             distanceBetweenMinCurrent = distanceBetweenMin * playerModifier;
             distanceBetweenMaxCurrent = distanceBetweenMax * playerModifier;
         }
+         */
         if (transform.position.x < generationPoint.position.x)
         {
             distanceBetween = Random.Range(distanceBetweenMinCurrent, distanceBetweenMaxCurrent);
@@ -88,12 +90,6 @@ public class PlatformGenerator : MonoBehaviour {
             platformSelector = Random.Range(0, theObjectPools.Length);
 
             
-            if (generatePowerup())
-            {
-                GameObject newPowerup = powerupPool.GetPooledObject();
-                newPowerup.transform.position = transform.position + new Vector3((distanceBetween / 2f), Random.Range((powerupHeight/2),powerupHeight), 0f);
-                newPowerup.SetActive(true);
-            }
             if (DoWeAddSpace()){
                 transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, transform.position.y, transform.position.z);
             }
@@ -110,26 +106,8 @@ public class PlatformGenerator : MonoBehaviour {
             newPlatform.SetActive(true);
 
 
-            if (Random.Range(0f, 100f) < randomCoinThreshold)
-            {
-                theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
-            }
             
             
-            if (generateSpike())
-            {
-                GameObject newSpike = spikePool.GetPooledObject();
-
-                float spikeXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 1f, (platformWidths[platformSelector]) / 2f  - 1f);
-
-
-                Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
-
-
-                newSpike.transform.position = transform.position + spikePosition;
-                newSpike.transform.rotation = transform.rotation;
-                newSpike.SetActive(true);
-            }
 
             if (generateSlideObstacle())
             {
@@ -155,6 +133,33 @@ public class PlatformGenerator : MonoBehaviour {
                 newAttackObstacle.transform.rotation = transform.rotation;
                 newAttackObstacle.SetActive(true);
             }
+            else if (generatePowerup())
+            {
+                GameObject newPowerup = powerupPool.GetPooledObject();
+                newPowerup.transform.position = transform.position + new Vector3((distanceBetween / 2f), Random.Range((powerupHeight / 2), powerupHeight), 0f);
+                newPowerup.SetActive(true);
+            }
+            else if (generateSpike())
+            {
+                GameObject newSpike = spikePool.GetPooledObject();
+
+                float spikeXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 1f, (platformWidths[platformSelector]) / 2f - 1f);
+
+
+                Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
+
+
+                newSpike.transform.position = transform.position + spikePosition;
+                newSpike.transform.rotation = transform.rotation;
+                newSpike.SetActive(true);
+            }
+            else if (Random.Range(0f, 100f) < randomCoinThreshold)
+            {
+                theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+
+
+
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) , transform.position.y, transform.position.z);
 
         }
