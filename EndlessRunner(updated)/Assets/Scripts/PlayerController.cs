@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource deathSound;
 
     public GameObject resumeButton;
+    public GameObject quitGameButton;
+    public GameObject restartButton;
 
     public bool isAttacking;
     public bool isSliding;
@@ -243,6 +245,10 @@ public class PlayerController : MonoBehaviour
             if (EventSystem.current.currentSelectedGameObject == GameObject.Find("PauseButton"))
                 return true;
             if (EventSystem.current.currentSelectedGameObject == resumeButton)
+                return true;
+            if (EventSystem.current.currentSelectedGameObject == quitGameButton)
+                return true;
+            if (EventSystem.current.currentSelectedGameObject == restartButton)
                 return true;
         }
         return false;

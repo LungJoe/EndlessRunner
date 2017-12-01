@@ -1067,6 +1067,8 @@ MonoBehaviour:
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   resumeButton: {fileID: 0}
+  quitGameButton: {fileID: 0}
+  restartButton: {fileID: 0}
   isAttacking: 0
   isSliding: 0
   invincible: 0
@@ -1695,7 +1697,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterLimit: 10
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -3702,6 +3704,8 @@ MonoBehaviour:
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   resumeButton: {fileID: 320107158}
+  quitGameButton: {fileID: 480482148}
+  restartButton: {fileID: 869966011}
   isAttacking: 0
   isSliding: 0
   invincible: 0
