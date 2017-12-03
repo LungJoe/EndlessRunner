@@ -25,7 +25,15 @@ public class DeathMenu : MonoBehaviour {
     private void Start()
     {
         currentStash = PlayerPrefs.GetInt("Bank", 0);
-        collected = score.coinCount;
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Endless")
+        {
+            collected = score.coinCount/2;
+        }
+        else
+        {
+            collected = score.coinCount;
+        }
         totalCoins = currentStash + collected;
         PlayerPrefs.SetInt("Bank", totalCoins);
     }
@@ -96,7 +104,15 @@ public class DeathMenu : MonoBehaviour {
 
     private void Update()
     {
-        collected = score.coinCount;
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Endless")
+        {
+            collected = score.coinCount / 2;
+        }
+        else
+        {
+            collected = score.coinCount;
+        }
         bank.text = "Stash:\t" + currentStash;
         grabbed.text = "Collected:\t" + collected;
         total.text = "Total:\t" + (currentStash + collected);

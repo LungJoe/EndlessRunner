@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour {
 
 
@@ -42,10 +42,19 @@ public class ScoreManager : MonoBehaviour {
             highScoreCount = scoreCount;
             PlayerPrefs.SetFloat("HighScore", highScoreCount);
         }
-
+        Scene currentScene = SceneManager.GetActiveScene();
+        
         scoreText.text = "Score: " + Mathf.Round(scoreCount);
         highScoreText.text = "High Score: " + Mathf.Round(highScoreCount);
-        coinText.text = "Coins: " + coinCount;
+        if(currentScene.name == "Endless")
+        {
+            coinText.text = "Coins: " + coinCount/2;
+        }
+        else
+        {
+            coinText.text = "Coins: " + coinCount;
+        }
+        
 
 	}
 
@@ -60,7 +69,15 @@ public class ScoreManager : MonoBehaviour {
 
     public void AddCoin()
     {
-        coinCount++;
+        Scene currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name == "Endless")
+        {
+            coinCount += 1;
+        }
+        else
+        {
+            coinCount++;
+        }
     }
 
     public void Reset()
