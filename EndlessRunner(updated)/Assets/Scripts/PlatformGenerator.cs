@@ -136,8 +136,7 @@ public class PlatformGenerator : MonoBehaviour {
             }
             else if (generateSpike())
             {
-                if (!spikePool.HasPooledObject())
-                {
+
                     GameObject newSpike = spikePool.GetPooledObject();
  
                     float spikeXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 1f, (platformWidths[platformSelector]) / 2f - 1f);
@@ -149,7 +148,7 @@ public class PlatformGenerator : MonoBehaviour {
                     newSpike.transform.position = transform.position + spikePosition;
                     newSpike.transform.rotation = transform.rotation;
                     newSpike.SetActive(true);
-                }
+
             }
             else if (generatePowerup())
             {
