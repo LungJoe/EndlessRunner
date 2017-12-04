@@ -10,8 +10,10 @@ public class MusicSingleton : MonoBehaviour {
 
     private void Awake()
     {
-        gameVol = PlayerPrefs.GetFloat("musicVol", 0.25F);
-        PlayerPrefs.GetInt("textureIndex", 0);
+		PlayerPrefs.SetFloat ("musicVol", 0.25F);
+		PlayerPrefs.SetInt("textureIndex", 0);
+        gameVol = PlayerPrefs.GetFloat("musicVol");
+        PlayerPrefs.GetInt("textureIndex");
 
         DontDestroyOnLoad(transform.gameObject);
         _audioSource = GetComponent<AudioSource>();
