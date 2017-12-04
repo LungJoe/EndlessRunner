@@ -40,4 +40,16 @@ public class ObejctPooler: MonoBehaviour {
         return obj;
     }
 
+    public bool HasPooledObject()
+    {
+        if(pooledObjects.Count <= 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
 }

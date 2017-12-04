@@ -136,17 +136,20 @@ public class PlatformGenerator : MonoBehaviour {
             }
             else if (generateSpike())
             {
-                GameObject newSpike = spikePool.GetPooledObject();
+                if (!spikePool.HasPooledObject())
+                {
+                    GameObject newSpike = spikePool.GetPooledObject();
+ 
+                    float spikeXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 1f, (platformWidths[platformSelector]) / 2f - 1f);
 
-                float spikeXPosition = Random.Range((-platformWidths[platformSelector]) / 2f + 1f, (platformWidths[platformSelector]) / 2f - 1f);
+
+                    Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
 
 
-                Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
-
-
-                newSpike.transform.position = transform.position + spikePosition;
-                newSpike.transform.rotation = transform.rotation;
-                newSpike.SetActive(true);
+                    newSpike.transform.position = transform.position + spikePosition;
+                    newSpike.transform.rotation = transform.rotation;
+                    newSpike.SetActive(true);
+                }
             }
             else if (generatePowerup())
             {
