@@ -4052,7 +4052,7 @@ MonoBehaviour:
   groundCheck: {fileID: 972066577}
   groundCheckRadius: 0.1
   theGameManager: {fileID: 1064363559}
-  scorer: {fileID: 0}
+  scorer: {fileID: 2021710863}
   jumpSound: {fileID: 911769300}
   deathSound: {fileID: 974073097}
   resumeButton: {fileID: 320107158}
