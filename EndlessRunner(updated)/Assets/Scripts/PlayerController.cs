@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public GameObject quitGameButton;
     public GameObject restartButton;
 
+    public static bool SomeKeyIsDown;
     public bool isAttacking;
     public bool isSliding;
     public bool invincible = false;
@@ -156,54 +157,63 @@ public class PlayerController : MonoBehaviour
         }
 
 
-      
-        if (Input.GetKeyDown(KeyCode.A) )
+        //Attack functionality
+        if ( Input.GetKeyDown(KeyCode.A) && !Input.GetKeyDown(KeyCode.S))
         {
             startTime = Time.time;
             holdTime = .2f;
         }
-        if (Input.GetKey(KeyCode.A) && grounded )
+        if (!SomeKeyIsDown && Input.GetKey(KeyCode.A) && grounded && !Input.GetKeyDown(KeyCode.S))
         {
+
             if (startTime + holdTime <= Time.time)
             {
                 isAttacking = false;
+                SomeKeyIsDown = false;
             }
             else
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
                 isAttacking = true;
+                SomeKeyIsDown = true;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.A))
+        else if (Input.GetKeyUp(KeyCode.A) && !Input.GetKeyDown(KeyCode.S))
         {
             isAttacking = false;
             startTime = 0f;
             canDoubleJump = false;
+            SomeKeyIsDown = false;
         }
       
 
         //Slide Functionality
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
+        if ( (Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
         {
             startTime = Time.time;
             holdTime = 1f;
         }
-        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)))
+        if (!SomeKeyIsDown && (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !Input.GetKeyDown(KeyCode.A))
         {
             if (startTime + holdTime <= Time.time)
             {
                 isSliding = false;
+                SomeKeyIsDown = false;
             }
             else
             {
                 isSliding = true;
+                SomeKeyIsDown = true;
             }
         }
         else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
         {
             isSliding = false;
             startTime = 0f;
+            SomeKeyIsDown = false;
+
         }
+
         if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded)
         {
             if (startTime + holdTime <= Time.time)
@@ -214,13 +224,10 @@ public class PlayerController : MonoBehaviour
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, fallForce);
                 isSliding = true;
+
             }
         }
 
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) && !grounded)
-        {
-
-        }
 
 
         if (grounded)
@@ -257,9 +264,10 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         //tagging an object -> easy way to detect what an object is(under object name in spector)
-        if ((other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4))) || (other.gameObject.tag == "attackBox" && !isAttacking))
+        //if ((other.gameObject.tag == "killbox" && (!invincible || !(transform.position.y > -4))) || (other.gameObject.tag == "attackBox" && !isAttacking))
+
+        if ((other.gameObject.tag == "Pit") || (other.gameObject.tag == "attackBox" && !isAttacking)  || (other.gameObject.tag == "killbox" && !invincible))
         {
-           
             theGameManager.RestartGame();
             ResetValues();
         }
@@ -277,7 +285,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetValues()
     {
-        
+        SomeKeyIsDown = false;
         isSliding = false;
         isAttacking = false;
         stoppedJumping = false;
