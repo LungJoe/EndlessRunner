@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
     public GameObject quitGameButton;
     public GameObject restartButton;
 
-    public static bool SomeKeyIsDown;
     public bool isAttacking;
     public bool isSliding;
     public bool invincible = false;
@@ -159,24 +158,22 @@ public class PlayerController : MonoBehaviour
 
 
         //Attack functionality
-        if ( Input.GetKeyDown(KeyCode.A) && !Input.GetKeyDown(KeyCode.S))
+        if ( Input.GetKeyDown(KeyCode.A) && !Input.GetKeyDown(KeyCode.S) && !isSliding)
         {
             startTime = Time.time;
             holdTime = .2f;
         }
-        if (!SomeKeyIsDown && Input.GetKey(KeyCode.A) && grounded && !Input.GetKeyDown(KeyCode.S))
+        if ( Input.GetKey(KeyCode.A) && grounded && !Input.GetKeyDown(KeyCode.S) && !isSliding)
         {
 
             if (startTime + holdTime <= Time.time)
             {
                 isAttacking = false;
-                SomeKeyIsDown = false;
             }
             else
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, attackJumpForce);
                 isAttacking = true;
-                SomeKeyIsDown = true;
             }
         }
         else if (Input.GetKeyUp(KeyCode.A) && !Input.GetKeyDown(KeyCode.S))
@@ -184,38 +181,34 @@ public class PlayerController : MonoBehaviour
             isAttacking = false;
             startTime = 0f;
             canDoubleJump = false;
-            SomeKeyIsDown = false;
         }
       
 
         //Slide Functionality
-        if ( (Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)))
+        if ( (Input.GetKeyDown(KeyCode.S) || Input.GetMouseButtonDown(1)) && !isAttacking)
         {
             startTime = Time.time;
             holdTime = 1f;
         }
-        if (!SomeKeyIsDown && (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !Input.GetKeyDown(KeyCode.A))
+        if ( (Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !Input.GetKeyDown(KeyCode.A) && !isAttacking)
         {
             if (startTime + holdTime <= Time.time)
             {
                 isSliding = false;
-                SomeKeyIsDown = false;
             }
             else
             {
                 isSliding = true;
-                SomeKeyIsDown = true;
             }
         }
         else if ((Input.GetKeyUp(KeyCode.S) || Input.GetMouseButtonUp(1)))
         {
             isSliding = false;
             startTime = 0f;
-            SomeKeyIsDown = false;
 
         }
 
-        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded)
+        if ((Input.GetKey(KeyCode.S) || Input.GetMouseButton(1)) && !grounded && !isAttacking)
         {
             if (startTime + holdTime <= Time.time)
             {
