@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
+				jumpSound.volume = PlayerPrefs.GetFloat("musicVol");
                 jumpSound.Play();
             }
         }
@@ -293,6 +294,7 @@ public class PlayerController : MonoBehaviour
         moveSpeed = moveSpeedStore;
         speedMilestoneCount = speedMilestoneCountStore;
         speedIncreaseMilestone = speedIncreaseMilstoneStore;
+		deathSound.volume = PlayerPrefs.GetFloat ("musicVol");
         deathSound.Play();
     }
 }

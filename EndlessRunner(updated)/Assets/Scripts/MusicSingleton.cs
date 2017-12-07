@@ -7,17 +7,20 @@ using Exception = System.Exception;
 public class MusicSingleton : MonoBehaviour {
     private AudioSource _audioSource;
     private float gameVol;
+	private int started;
 
-    private void Awake()
+
+    private void Start()
     {
-		PlayerPrefs.SetFloat ("musicVol", 0.25F);
-		PlayerPrefs.SetInt("textureIndex", 0);
-        gameVol = PlayerPrefs.GetFloat("musicVol");
-        PlayerPrefs.GetInt("textureIndex");
+			PlayerPrefs.GetFloat ("musicVol", 0.25F);
+			PlayerPrefs.GetInt ("textureIndex", 0);
+			gameVol = PlayerPrefs.GetFloat ("musicVol");
+			PlayerPrefs.GetInt ("textureIndex");
 
-        DontDestroyOnLoad(transform.gameObject);
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.volume = gameVol;
+			DontDestroyOnLoad (transform.gameObject);
+			_audioSource = GetComponent<AudioSource> ();
+			_audioSource.volume = gameVol;
+			PlayerPrefs.SetInt ("started", 1);
     }
 
     public void PlayMusic()

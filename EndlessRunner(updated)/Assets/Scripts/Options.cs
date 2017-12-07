@@ -41,7 +41,7 @@ public class Options : MonoBehaviour {
     public void SaveSettings()
     {
         PlayerPrefs.SetInt("textureIndex", textureQuality.value);
-        PlayerPrefs.SetFloat("musicVol", music.volume);
+		PlayerPrefs.SetFloat("musicVol", musicVolumeSlider.value);
         SceneManager.LoadScene(mainMenu);
 
     }

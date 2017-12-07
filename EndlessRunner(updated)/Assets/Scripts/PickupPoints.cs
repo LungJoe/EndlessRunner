@@ -33,6 +33,7 @@ public class PickupPoints : MonoBehaviour {
             if (coinSound.isPlaying)
             {
                 coinSound.Stop();
+				coinSound.volume = PlayerPrefs.GetFloat("musicVol");
                 coinSound.Play();
             }
             else
