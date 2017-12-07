@@ -11,6 +11,7 @@ public class GameMenu : MonoBehaviour
     public string playEndless3;
     public string MainMenu;
     public string ScoreBoard;
+    public string Credits;
     public PlayerController thePlayer;
     public Button[] levels;
     public Button[] skins;
@@ -100,6 +101,11 @@ public class GameMenu : MonoBehaviour
     public void GoBackToMainMenu()
     {
         SceneManager.LoadScene(MainMenu);
+    }
+
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene(Credits);
     }
 
 	public void setObjectsFalseByTag(string tag){
