@@ -1,13 +1,13 @@
 ﻿#pragma strict
 var frames : Texture2D[];
-var framesPorSegundo = 10.0;
+var framesPerSecond = 10.0;
 
 function Start () {
 	
 }
 
 function Update () {
-        var index : int = Time.time * framesPorSegundo;
+        var index : int = Time.time * framesPerSecond;
         index = index % frames.Length;
         GetComponent.<Renderer>().material.mainTexture = frames[index];
 }

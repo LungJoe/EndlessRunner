@@ -12,6 +12,7 @@ public class GameMenu : MonoBehaviour
     public string MainMenu;
     public string ScoreBoard;
     public string Credits;
+    public string Tutorial;
     public PlayerController thePlayer;
     public Button[] levels;
     public Button[] skins;
@@ -107,6 +108,11 @@ public class GameMenu : MonoBehaviour
     {
         SceneManager.LoadScene(Credits);
     }
+    public void GoToTutorial()
+    {
+        SceneManager.LoadScene(Tutorial);
+    }
+
 
 	public void setObjectsFalseByTag(string tag){
 		GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag (tag);
