@@ -279,7 +279,6 @@ public class PlayerController : MonoBehaviour
 
     public void ResetValues()
     {
-        SomeKeyIsDown = false;
         isSliding = false;
         isAttacking = false;
         stoppedJumping = false;
