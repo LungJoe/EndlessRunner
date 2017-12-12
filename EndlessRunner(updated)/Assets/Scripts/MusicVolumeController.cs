@@ -10,6 +10,7 @@ public class MusicVolumeController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gameVol = PlayerPrefs.GetFloat("musicVol");
+        print(gameVol);
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = gameVol;
     }

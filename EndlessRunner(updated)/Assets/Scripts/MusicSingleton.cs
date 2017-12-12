@@ -12,15 +12,20 @@ public class MusicSingleton : MonoBehaviour {
 
     private void Start()
     {
-			PlayerPrefs.GetFloat ("musicVol", 0.25F);
-			PlayerPrefs.GetInt ("textureIndex", 0);
-			gameVol = PlayerPrefs.GetFloat ("musicVol");
-			PlayerPrefs.GetInt ("textureIndex");
+        if (!PlayerPrefs.HasKey("musicVol"))
+        {
+            PlayerPrefs.SetFloat("musicVol", 0.25F);
+        }
+        if (!PlayerPrefs.HasKey("textureIndex"))
+        {
+            PlayerPrefs.SetInt("textureIndex", 0);
+        }
+        gameVol = PlayerPrefs.GetFloat ("musicVol");
+		PlayerPrefs.GetInt ("textureIndex");
 
-			DontDestroyOnLoad (transform.gameObject);
-			_audioSource = GetComponent<AudioSource> ();
-			_audioSource.volume = gameVol;
-			PlayerPrefs.SetInt ("started", 1);
+		DontDestroyOnLoad (transform.gameObject);
+		_audioSource = GetComponent<AudioSource> ();
+		_audioSource.volume = gameVol;
     }
 
     public void PlayMusic()
