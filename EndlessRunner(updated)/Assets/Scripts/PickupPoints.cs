@@ -24,6 +24,7 @@ public class PickupPoints : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+		coinSound.volume = PlayerPrefs.GetFloat("musicVol");
         if (other.gameObject.name == "Player")
         {
             theScoreManager.AddScore(scoreToGive);
@@ -33,7 +34,6 @@ public class PickupPoints : MonoBehaviour {
             if (coinSound.isPlaying)
             {
                 coinSound.Stop();
-				coinSound.volume = PlayerPrefs.GetFloat("musicVol");
                 coinSound.Play();
             }
             else

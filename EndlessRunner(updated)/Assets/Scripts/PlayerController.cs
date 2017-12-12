@@ -221,9 +221,7 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
-
-
+			
         if (grounded)
         {
             jumpTimeCounter = jumpTime;
